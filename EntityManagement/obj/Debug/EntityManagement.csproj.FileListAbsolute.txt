@@ -1,0 +1,13 @@
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityManagement.dll.config
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityManagement.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityManagement.pdb
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityFramework.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityFramework.SqlServer.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\MySql.Data.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityFramework.xml
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\EntityFramework.SqlServer.xml
+E:\VSProject\Management\ManagementSystem\EntityManagement\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\obj\Debug\EntityManagement.csprojResolveAssemblyReference.cache
+E:\VSProject\Management\ManagementSystem\EntityManagement\obj\Debug\EntityManagement.dll
+E:\VSProject\Management\ManagementSystem\EntityManagement\obj\Debug\EntityManagement.pdb
