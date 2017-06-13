@@ -1,0 +1,11 @@
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Services.dll
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Services.pdb
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Domain.Entities.dll
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Domain.Interfaces.dll
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Services.Interfaces.dll
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Domain.Entities.pdb
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Domain.Interfaces.pdb
+D:\FinalProject\ManagementSystem\Services\bin\Debug\Services.Interfaces.pdb
+D:\FinalProject\ManagementSystem\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+D:\FinalProject\ManagementSystem\Services\obj\Debug\Services.dll
+D:\FinalProject\ManagementSystem\Services\obj\Debug\Services.pdb
