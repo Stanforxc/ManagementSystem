@@ -4,3 +4,10 @@ D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.d
 D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.pdb
 D:\FinalProject\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.dll
 D:\FinalProject\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.pdb
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\bin\Debug\Services.Interfaces.dll
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\bin\Debug\Services.Interfaces.pdb
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.pdb
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.csprojResolveAssemblyReference.cache
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.dll
+D:\VisualStudioProjects\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.pdb

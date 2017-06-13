@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data.GenericRepository
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> Get();
         T GetByID(object id);

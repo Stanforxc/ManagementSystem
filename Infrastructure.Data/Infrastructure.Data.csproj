@@ -57,23 +57,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel.Context.cs">
+    <Compile Include="Configuration\ItemConfig.cs" />
+    <Compile Include="Configuration\UserConfig.cs" />
+    <Compile Include="Data\DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel.cs">
+    <Compile Include="Data\DataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel.Designer.cs">
+    <Compile Include="Data\DataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\Item.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="GenericRepository\IRepository.cs" />
+    <Compile Include="Repository\IRepoItem.cs" />
+    <Compile Include="Repository\IRepoUser.cs" />
+    <Compile Include="UOW\IUOW.cs" />
+    <Compile Include="UOW\UOW.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,22 +101,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DataModel.edmx">
+    <EntityDeploy Include="Data\DataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModel.edmx.diagram">
+    <None Include="Data\DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModel.Context.tt">
+    <Content Include="Data\DataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DataModel.Context.cs</LastGenOutput>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="DataModel.tt">
+    <Content Include="Data\DataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
@@ -113,5 +125,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
