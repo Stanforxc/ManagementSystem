@@ -13,10 +13,10 @@ namespace EntityModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class hjyEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public hjyEntities()
-            : base("name=hjyEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

@@ -1,0 +1,16 @@
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityModel.dll.config
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityModel.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityModel.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityFramework.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\MySql.Data.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\MySql.Fabric.Plugin.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\MySql.Web.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityFramework.xml
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\EntityModel.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\EntityModel.pdb

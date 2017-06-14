@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="in_time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="SByte" />
+    <Property Name="is_safety" Type="SByte" />
+    <NavigationProperty Name="histories" Relationship="Self.device1" FromRole="device" ToRole="history" />
+    <NavigationProperty Name="device_user" Relationship="Self.device_fk" FromRole="device" ToRole="device_user" />
+  </EntityType>
+  <EntityType Name="device_user">
+    <Key>
+      <PropertyRef Name="rela_id" />
+    </Key>
+    <Property Name="device_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rela_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="device" Relationship="Self.device_fk" FromRole="device_user" ToRole="device" />
+    <NavigationProperty Name="user" Relationship="Self.user_fk" FromRole="device_user" ToRole="user" />
+  </EntityType>
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="device_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="SByte" Nullable="false" />
+    <Property Name="time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="device" Relationship="Self.device1" FromRole="history" ToRole="device" />
+    <NavigationProperty Name="user" Relationship="Self.user1" FromRole="history" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="device_user" Relationship="Self.user_fk" FromRole="user" ToRole="device_user" />
+    <NavigationProperty Name="histories" Relationship="Self.user1" FromRole="user" ToRole="history" />
+  </EntityType>
+  <Association Name="device1">
+    <End Role="device" Type="Self.device" Multiplicity="1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="device">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="device_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="device_fk">
+    <End Role="device" Type="Self.device" Multiplicity="1" />
+    <End Role="device_user" Type="Self.device_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="device">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="device_user">
+        <PropertyRef Name="device_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_fk">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="device_user" Type="Self.device_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="device_user">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user1">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="devices" EntityType="Self.device" />
+    <EntitySet Name="device_user" EntityType="Self.device_user" />
+    <EntitySet Name="histories" EntityType="Self.history" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="device1" Association="Self.device1">
+      <End Role="device" EntitySet="devices" />
+      <End Role="history" EntitySet="histories" />
+    </AssociationSet>
+    <AssociationSet Name="device_fk" Association="Self.device_fk">
+      <End Role="device" EntitySet="devices" />
+      <End Role="device_user" EntitySet="device_user" />
+    </AssociationSet>
+    <AssociationSet Name="user_fk" Association="Self.user_fk">
+      <End Role="user" EntitySet="users" />
+      <End Role="device_user" EntitySet="device_user" />
+    </AssociationSet>
+    <AssociationSet Name="user1" Association="Self.user1">
+      <End Role="user" EntitySet="users" />
+      <End Role="history" EntitySet="histories" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

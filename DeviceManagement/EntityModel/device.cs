@@ -29,7 +29,7 @@ namespace EntityModel
         public string in_time { get; set; }
         public string desc { get; set; }
         public Nullable<sbyte> status { get; set; }
-        public string is_safety { get; set; }
+        public Nullable<sbyte> is_safety { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<history> histories { get; set; }

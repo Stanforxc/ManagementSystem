@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EntityModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="device">
           <Key>
             <PropertyRef Name="id" />
@@ -17,7 +17,7 @@
           <Property Name="in_time" Type="varchar" MaxLength="255" />
           <Property Name="desc" Type="varchar" MaxLength="255" />
           <Property Name="status" Type="tinyint" />
-          <Property Name="is_safety" Type="varchar" MaxLength="45" />
+          <Property Name="is_safety" Type="tinyint" />
         </EntityType>
         <EntityType Name="device_user">
           <Key>
@@ -93,7 +93,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="EntityModelStoreContainer">
           <EntitySet Name="device" EntityType="Self.device" Schema="hjy" store:Type="Tables" />
           <EntitySet Name="device_user" EntityType="Self.device_user" Schema="hjy" store:Type="Tables" />
           <EntitySet Name="history" EntityType="Self.history" Schema="hjy" store:Type="Tables" />
@@ -119,7 +119,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="device">
           <Key>
             <PropertyRef Name="id" />
@@ -132,7 +132,7 @@
           <Property Name="in_time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="status" Type="SByte" />
-          <Property Name="is_safety" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="is_safety" Type="SByte" />
           <NavigationProperty Name="histories" Relationship="Self.device1" FromRole="device" ToRole="history" />
           <NavigationProperty Name="device_user" Relationship="Self.device_fk" FromRole="device" ToRole="device_user" />
         </EntityType>
@@ -216,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="hjyEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="devices" EntityType="Self.device" />
           <EntitySet Name="device_user" EntityType="Self.device_user" />
           <EntitySet Name="histories" EntityType="Self.history" />
@@ -243,9 +243,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="hjyEntities">
+        <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="devices">
-            <EntityTypeMapping TypeName="Model.device">
+            <EntityTypeMapping TypeName="EntityModel.device">
               <MappingFragment StoreEntitySet="device">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -260,7 +260,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="device_user">
-            <EntityTypeMapping TypeName="Model.device_user">
+            <EntityTypeMapping TypeName="EntityModel.device_user">
               <MappingFragment StoreEntitySet="device_user">
                 <ScalarProperty Name="device_id" ColumnName="device_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -269,7 +269,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="histories">
-            <EntityTypeMapping TypeName="Model.history">
+            <EntityTypeMapping TypeName="EntityModel.history">
               <MappingFragment StoreEntitySet="history">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="device_id" ColumnName="device_id" />
@@ -280,7 +280,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="Model.user">
+            <EntityTypeMapping TypeName="EntityModel.user">
               <MappingFragment StoreEntitySet="user">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />

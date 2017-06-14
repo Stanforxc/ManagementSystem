@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="EntityModel.device">
+        <MappingFragment StoreEntitySet="device">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="type_1" ColumnName="type_1" />
+          <ScalarProperty Name="type_2" ColumnName="type_2" />
+          <ScalarProperty Name="type_3" ColumnName="type_3" />
+          <ScalarProperty Name="in_time" ColumnName="in_time" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="is_safety" ColumnName="is_safety" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="device_user">
+      <EntityTypeMapping TypeName="EntityModel.device_user">
+        <MappingFragment StoreEntitySet="device_user">
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="rela_id" ColumnName="rela_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="histories">
+      <EntityTypeMapping TypeName="EntityModel.history">
+        <MappingFragment StoreEntitySet="history">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="EntityModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
