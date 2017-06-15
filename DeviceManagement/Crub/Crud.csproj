@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Crub</RootNamespace>
-    <AssemblyName>Crub</AssemblyName>
+    <AssemblyName>Crud</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceCrubOperator.cs" />
+    <Compile Include="HistoryCrudOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCrubOperator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityModel\EntityModel.csproj">

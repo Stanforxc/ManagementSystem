@@ -7,33 +7,49 @@ using EntityModel;
 
 namespace Crud
 {
-    public class DeviceCrubOperator
+    public class UserCrubOperator
     {
+
         private Entities entity = new Entities();
 
-        public Boolean create(device insert_item)
-        {
-            try
-            {
-                entity.devices.Add(insert_item);
+        public Boolean create(user insert_item) {
+            try {
+                entity.users.Add(insert_item);
                 entity.SaveChanges();
                 return true;
-            }
-            catch (Exception e)
-            {
+            }catch(Exception e){
                 Console.Write(e.Message);
                 return false;
             }
         }
 
-        public List<device> queryAll()
+        public List<user> queryAll() {
+            try
+            {
+                return (from u in entity.users select u).ToList(); ;
+            }
+            catch (Exception e) {
+                Console.Write(e.Message);
+                return null;
+            }
+        }
+
+        public user queryById(string id) {
+            try
+            {
+                return (from u in entity.users where u.id.CompareTo(id) == 0 select u).First();
+            }
+            catch (Exception e) {
+                Console.Write(e.Message);
+                return null;
+            }
+        }
+
+        public user queryByName(string name)
         {
             try
             {
-                var devices = from d in entity.devices select d;
-
-                return devices.ToList();
-
+                return (from u in entity.users where u.username.CompareTo(name) == 0 select u).First();
             }
             catch (Exception e)
             {
@@ -42,61 +58,10 @@ namespace Crud
             }
         }
 
-        public List<device> queryByName(string name) {
-            try
-            {
-                var devices = from du in entity.device_user where 0 == du.user.username.CompareTo(name) select du.device;
-
-                return devices.ToList();
-            }
-            catch (Exception e) {
-                Console.Write(e.Message);
-                return null;
-            }
-
-        }
-
-
-        public device queryById(int id)
-        {
-            try
-            {
-                Entities entity = new Entities();
-
-                var devices = from d in entity.devices where d.id == id select d;
-
-                return devices.AsEnumerable().First();
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-                return null;
-            }
-
-        }
-
-        public Boolean update(device dev) {
+        public Boolean update() {
             try
             {
                 entity.SaveChanges();
-                return true;    
-            }
-            catch (Exception e) {
-                Console.Write(e.Message);
-                return false;
-            }
-        }
-
-
-        public Boolean delete(int id) {
-            try
-            {
-                device dev_to_del = (from d in entity.devices where d.id == id select d).First();
-
-                entity.devices.Remove(dev_to_del);
-
-                entity.SaveChanges();
-
                 return true;
             }
             catch (Exception e) {
@@ -105,10 +70,17 @@ namespace Crud
             }
         }
 
-        public Boolean delete(device dev) {
+        public Boolean delete(string id) {
             try
             {
-                return delete(dev.id);
+                user user_to_delete = (from u in entity.users where u.id.CompareTo(id) == 0 select u).First();
+
+                entity.users.Remove(user_to_delete);
+
+                entity.SaveChanges();
+
+                return true;
+
             }
             catch (Exception e) {
                 Console.Write(e.Message);
@@ -116,10 +88,24 @@ namespace Crud
             }
         }
 
-        public List<user> getAllUserOfDevice(device d) {
+        public Boolean delete(user u) {
             try
             {
-                return (from du in d.device_user select du.user).ToList();
+                return delete(u.id);
+            }
+            catch (Exception e) {
+                Console.Write(e.Message);
+                return false;
+            }
+        }
+
+        
+        public List<device> getAllDeviceOfUser(user renter) {
+            try
+            {
+                IEnumerable<device> ret = (from du in renter.device_user
+                                          select du.device).AsEnumerable();
+                return ret.ToList();
             }
             catch (Exception e) {
                 Console.Write(e.Message);
@@ -127,14 +113,13 @@ namespace Crud
             }
         }
 
-        public Boolean addUserToDevice(device d, user u) {
+        public Boolean addDeviceToUser(user u, device d) {
             try
             {
                 device_user du = new device_user();
 
                 du.device_id = d.id;
                 du.user_id = u.id;
-
                 entity.device_user.Add(du);
                 entity.SaveChanges();
 
@@ -146,10 +131,10 @@ namespace Crud
             }
         }
 
-        public Boolean deleteUserFromDevice(device d, user u) {
+        public Boolean deleteDeviceFromUser(user u, device d) {
             try
             {
-                device_user record = (from du in d.device_user where du.device_id == d.id select du).First();
+                device_user record = (from du in u.device_user where du.device_id == d.id select du).First();
 
                 entity.device_user.Remove(record);
 
@@ -162,9 +147,9 @@ namespace Crud
                 return false;
             }
         }
-
-        ~DeviceCrubOperator() {
+        ~UserCrubOperator() {
             entity.Dispose();
         }
+        
     }
 }

@@ -13,4 +13,3 @@ E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\EntityModel.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\EntityModel.pdb
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\EntityModel\obj\Debug\EntityModel.csprojResolveAssemblyReference.cache

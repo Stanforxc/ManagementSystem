@@ -277,9 +277,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crub\Crub.csproj">
+    <ProjectReference Include="..\Crub\Crud.csproj">
       <Project>{b13d6691-4aff-40e2-aa95-33988f3ef060}</Project>
-      <Name>Crub</Name>
+      <Name>Crud</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityModel\EntityModel.csproj">
       <Project>{49acac96-50ae-49c1-a79f-13ea44119a14}</Project>

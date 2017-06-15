@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Crub;
+using Crud;
 using EntityModel;
 
 namespace DeviceManagement.Controllers
@@ -21,8 +21,9 @@ namespace DeviceManagement.Controllers
         }
 
         private void dbTest() {
-            insertDevice();
-
+            //insertDevice();
+            //queryTest();
+            deleteTest();
         }
 
         private Boolean insertDevice(){
@@ -37,6 +38,26 @@ namespace DeviceManagement.Controllers
             return decOperator.create(dev);
 
         }
+
+        private void queryTest() {
+            DeviceCrubOperator decOperator = new DeviceCrubOperator();
+
+            device list = decOperator.queryById(2);
+
+            list.name = "ipad air";
+
+            decOperator.update(list);
+
+        }
+
+        private void deleteTest() {
+            UserCrubOperator op = new UserCrubOperator();
+            DeviceCrubOperator dop = new DeviceCrubOperator();
+            
+            Console.Write(1);
+            
+        }
+
     }
 
     
