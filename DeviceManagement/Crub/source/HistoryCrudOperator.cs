@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityModel;
-namespace Crub
+namespace Crud
 {
-    class HistoryCrudOperator
+    public class HistoryCrudOperator
     {
 
         private Entities entity = new Entities();
@@ -69,5 +69,21 @@ namespace Crub
             }
         }
 
+
+        public int bestOfType_1(string type_1) {
+            try
+            {
+                var count_table = from h_1 in entity.histories
+                                  where h_1.device.type_1.CompareTo(type_1)==0
+                                  group h_1.user_id by h_1.device_id into g
+                                  select new { id = g.Key, count = g.Count()};
+
+                return best_id = (count_table.Max(d => d.count)).id;
+            }
+            catch (Exception e) {
+                Console.Write(e.Message);
+                return 0;
+            }
+        }
     }
 }

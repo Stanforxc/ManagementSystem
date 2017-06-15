@@ -26,6 +26,17 @@ namespace Crud
             }
         }
 
+        public List<device> queryByType_1(string type_1) {
+            try
+            {
+                return (from d in entity.devices where d.type_1.CompareTo(type_1) == 0 select d).ToList();
+            }
+            catch (Exception e) {
+                Console.Write(e.Message);
+                return null;
+            }
+        }
+
         public List<device> queryAll()
         {
             try
@@ -75,7 +86,7 @@ namespace Crud
 
         }
 
-        public Boolean update(device dev) {
+        public Boolean update() {
             try
             {
                 entity.SaveChanges();
@@ -92,6 +103,10 @@ namespace Crud
             try
             {
                 device dev_to_del = (from d in entity.devices where d.id == id select d).First();
+
+                IEnumerable<device_user> all_rec = dev_to_del.device_user.AsEnumerable();
+
+                entity.device_user.RemoveRange(all_rec);
 
                 entity.devices.Remove(dev_to_del);
 
@@ -160,6 +175,15 @@ namespace Crud
             catch (Exception e) {
                 Console.Write(e.Message);
                 return false;
+            }
+        }
+
+        public int sumOfType_1(string type_1) {
+            try {
+                return (from d in entity.devices where d.type_1.CompareTo(type_1) == 0 select d).Count();
+            }catch (Exception e) {
+                Console.Write(e.Message);
+                return 0;
             }
         }
 

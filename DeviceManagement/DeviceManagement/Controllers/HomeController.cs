@@ -53,7 +53,7 @@ namespace DeviceManagement.Controllers
         private void deleteTest() {
             UserCrubOperator op = new UserCrubOperator();
             DeviceCrubOperator dop = new DeviceCrubOperator();
-            
+            dop.delete(3);
             Console.Write(1);
             
         }

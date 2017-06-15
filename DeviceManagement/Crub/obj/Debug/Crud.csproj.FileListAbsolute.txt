@@ -1,6 +1,3 @@
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crub.dll.config
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crub.dll
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crub.pdb
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\EntityFramework.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\EntityFramework.SqlServer.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\EntityModel.dll
@@ -11,5 +8,8 @@ E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\E
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crud.csprojResolveAssemblyReference.cache
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crub.dll
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crub.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crud.dll.config
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crud.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crud.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crud.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crud.pdb
