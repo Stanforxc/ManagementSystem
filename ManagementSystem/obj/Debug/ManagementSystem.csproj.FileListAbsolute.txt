@@ -166,6 +166,8 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ManagementSystem.d
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ManagementSystem.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ManagementSystem.pdb
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.Integration.WebApi.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Entities.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.dll
@@ -179,7 +181,6 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.Web.d
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.WindowsServer.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.ApplicationInsights.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.Core.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.Owin.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.dll
@@ -192,8 +193,13 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.Sec
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.Security.OAuth.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.Security.Twitter.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.AspNet.Identity.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.Entity.EF6.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\NLog.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Owin.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Purplelight.Framework.Autofac.Integration.WebApi.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Net.Http.Formatting.dll
@@ -215,7 +221,15 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Infrastructure.Dat
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Infrastructure.Data.dll.config
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.Interfaces.pdb
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.pdb
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.Integration.WebApi.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.SqlServer.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.AspNet.Identity.pdb
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.Entity.EF6.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\NLog.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Net.Http.Formatting.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Helpers.xml
@@ -228,11 +242,8 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPage
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPages.Deployment.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPages.Razor.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.pdb
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.xml
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.SqlServer.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.Core.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.Owin.xml
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.Owin.Security.xml
@@ -249,6 +260,8 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.Serve
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.WindowsServer.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.Web.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\AutoMapper.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.resources.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.Http.resources.dll
@@ -259,11 +272,8 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.WebPages.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.resources.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.AspNet.Identity.Core.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.Owin.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.Owin.Host.SystemWeb.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.Owin.Security.resources.dll
@@ -275,7 +285,3 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.pdb
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.Entity.EF6.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.xml
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.Entity.EF6.xml

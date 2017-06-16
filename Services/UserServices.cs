@@ -14,36 +14,30 @@ namespace Services
     {
         private readonly UOW _uow;
 
-        public UserServices()
+        public UserServices(UOW uow)
         {
-            _uow = new UOW();
+            _uow = uow;
         }
 
-        public int Authenticate(string userName, string password)
-        {
-            var user = _uow.UserRepository.Get(u => u.account == userName && u.passwd == password);
-            if(user != null)
-            {
-                return user.id;
-            }
-            return 0;
-        }
-
-        public int createUser(UserEntity userEntity)
+        public string createUser(UserEntity userEntity)
         {
             using(var scope = new TransactionScope())
             {
-                var user = new User
+                if(userEntity != null)
                 {
-                    id = userEntity.UserID,
-                    account = userEntity.account,
-                    passwd = userEntity.passwd
-                };
+                    var user = new user
+                    {
+                        Id = userEntity.id,
+                        UserName = userEntity.name,
+                        PasswordHash = userEntity.passwd
+                    };
 
-                _uow.UserRepository.Insert(user);
-                _uow.Commit();
-                scope.Complete();
-                return user.id;
+                    _uow.UserRepository.Insert(user);
+                    _uow.Commit();
+                    scope.Complete();
+                    return user.Id;
+                }
+                return "-1";
             }
         }
 
@@ -72,8 +66,8 @@ namespace Services
             var users = _uow.UserRepository.GetAll().ToList();
             if (users.Any())
             {
-                Mapper.Initialize(x => x.CreateMap<User, UserEntity>());
-                var usersModel = Mapper.Map<List<User>, List<UserEntity>>(users);
+                Mapper.Initialize(x => x.CreateMap<user, UserEntity>());
+                var usersModel = Mapper.Map<List<user>, List<UserEntity>>(users);
                 return usersModel;
             }
             return null;
@@ -84,8 +78,8 @@ namespace Services
             var user = _uow.UserRepository.GetByID(userId);
             if(user != null)
             {
-                Mapper.Initialize(x => x.CreateMap<User, UserEntity>());
-                var userModel = Mapper.Map<User, UserEntity>(user);
+                Mapper.Initialize(x => x.CreateMap<user, UserEntity>());
+                var userModel = Mapper.Map<user, UserEntity>(user);
                 return userModel;
             }
             return null;
@@ -99,7 +93,7 @@ namespace Services
                 var user = _uow.UserRepository.GetByID(userId);
                 if (user != null)
                 {
-                    user.account = userEntity.account;
+                    user.UserName = userEntity.name;
                     _uow.UserRepository.Uppdate(user);
                     _uow.Commit();
                     scope.Complete();
@@ -108,5 +102,7 @@ namespace Services
             }
             return success;
         }
+
+        
     }
 }

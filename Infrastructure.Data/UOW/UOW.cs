@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Data.Entity.Validation;
 using Infrastructure.Data.GenericRepository;
 using Domain.Entities;
+using Infrastructure.Data.Repository;
 
 namespace Infrastructure.Data.UOW
 {
@@ -12,8 +13,10 @@ namespace Infrastructure.Data.UOW
     {
         private DataEntities _context = null;
 
-        private GenericRepository<User> _userRepository;
-        private GenericRepository<Item> _itemRepository;
+        private GenericRepository<user> _userRepository;
+        private GenericRepository<movie> _movieRepository;
+        private RepoDirector _directorRepository;
+        private RepoGenres _genreRepository;
         private bool disposed = false;
 
         public UOW()
@@ -21,29 +24,53 @@ namespace Infrastructure.Data.UOW
             _context = new DataEntities();
         }
 
-        public GenericRepository<User> UserRepository
+        public GenericRepository<user> UserRepository
         {
             get
             {
                 if(this._userRepository == null)
                 {
-                    _userRepository = new GenericRepository<User>(_context);
+                    _userRepository = new GenericRepository<user>(_context);
                 }
                 return _userRepository;
             }
         }
 
-        public GenericRepository<Item> ItemRepository
+        public GenericRepository<movie> MovieRepository
         {
             get
             {
-                if (this._itemRepository == null)
+                if(this._movieRepository == null)
                 {
-                    _itemRepository = new GenericRepository<Item>(_context);
+                    _movieRepository = new GenericRepository<movie>(_context);
                 }
-                return _itemRepository;
+                return _movieRepository;
             }
         }
+
+        public RepoDirector DirectoryRepository
+        {
+            get
+            {
+                if (this._directorRepository == null)
+                {
+                    _directorRepository = new RepoDirector(_context);
+                }
+                return _directorRepository;
+            }
+        }
+
+        public RepoGenres GenereRepository
+        {
+            get{
+                if (this._genreRepository == null)
+                {
+                    _genreRepository = new RepoGenres(_context);
+                }
+                return _genreRepository;
+            }
+        }
+
 
         public void Commit()
         {

@@ -1,23 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
-    <EntitySetMapping Name="Items">
-      <EntityTypeMapping TypeName="DataModel.Item">
-        <MappingFragment StoreEntitySet="Item">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="url" ColumnName="url" />
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="DataModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DataModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="account" ColumnName="account" />
-          <ScalarProperty Name="passwd" ColumnName="passwd" />
+    <EntitySetMapping Name="userclaims">
+      <EntityTypeMapping TypeName="DataModel.userclaim">
+        <MappingFragment StoreEntitySet="userclaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="userlogins">
+      <EntityTypeMapping TypeName="DataModel.userlogin">
+        <MappingFragment StoreEntitySet="userlogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="DataModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="userroles" TypeName="DataModel.userroles" StoreEntitySet="userroles">
+      <EndProperty Name="role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="movies">
+      <EntityTypeMapping TypeName="DataModel.movie">
+        <MappingFragment StoreEntitySet="movie">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="runtime" ColumnName="runtime" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cast" ColumnName="cast" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="star" ColumnName="star" />
+          <ScalarProperty Name="online_time" ColumnName="online_time" />
+          <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="DataModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="operationType" ColumnName="operationType" />
+          <ScalarProperty Name="operationTime" ColumnName="operationTime" />
+          <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="directors">
+      <EntityTypeMapping TypeName="DataModel.director">
+        <MappingFragment StoreEntitySet="director">
+          <ScalarProperty Name="born_date" ColumnName="born_date" />
+          <ScalarProperty Name="director_name" ColumnName="director_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generes">
+      <EntityTypeMapping TypeName="DataModel.Genere">
+        <MappingFragment StoreEntitySet="Genere">
+          <ScalarProperty Name="genre" ColumnName="genre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="genre_director" TypeName="DataModel.genre_director" StoreEntitySet="genre_director">
+      <EndProperty Name="Genere">
+        <ScalarProperty Name="genre" ColumnName="genre" />
+      </EndProperty>
+      <EndProperty Name="director">
+        <ScalarProperty Name="director_name" ColumnName="director_name" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

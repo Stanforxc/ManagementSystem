@@ -5,8 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5fbed6039739432194cf9e1c83e43564" Name="Diagram1">
-        <EntityTypeShape EntityType="DataModel.Item" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.role" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="DataModel.userclaim" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="DataModel.userlogin" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="DataModel.user" Width="1.5" PointX="0.75" PointY="2.625" />
+        <AssociationConnector Association="DataModel.ApplicationUser_Claims" />
+        <AssociationConnector Association="DataModel.ApplicationUser_Logins" />
+        <AssociationConnector Association="DataModel.userroles" />
+        <EntityTypeShape EntityType="DataModel.movie" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.History" Width="1.5" PointX="7.625" PointY="2.625" />
+        <AssociationConnector Association="DataModel.Id" />
+        <AssociationConnector Association="DataModel.movie_name" />
+        <EntityTypeShape EntityType="DataModel.director" Width="1.5" PointX="5.375" PointY="5.875" />
+        <EntityTypeShape EntityType="DataModel.Genere" Width="1.5" PointX="7.625" PointY="6" />
+        <AssociationConnector Association="DataModel.genre_director" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -9,7 +9,6 @@
 
 namespace Infrastructure.Data.Data
 {
-    using Infrastructure.Data.Configuration;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -23,11 +22,16 @@ namespace Infrastructure.Data.Data
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new UserConfig());
-            modelBuilder.Configurations.Add(new ItemConfig());
+            throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<role> roles { get; set; }
+        public virtual DbSet<userclaim> userclaims { get; set; }
+        public virtual DbSet<userlogin> userlogins { get; set; }
+        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<movie> movies { get; set; }
+        public virtual DbSet<History> Histories { get; set; }
+        public virtual DbSet<director> directors { get; set; }
+        public virtual DbSet<Genere> Generes { get; set; }
     }
 }

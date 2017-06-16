@@ -45,6 +45,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -57,8 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ItemConfig.cs" />
-    <Compile Include="Configuration\UserConfig.cs" />
     <Compile Include="Data\DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,15 +73,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Item.cs">
+    <Compile Include="Data\director.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\User.cs">
+    <Compile Include="Data\Genere.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\History.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\movie.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\role.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\user.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\userclaim.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\userlogin.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="GenericRepository\IRepository.cs" />
-    <Compile Include="Repository\IRepoItem.cs" />
+    <Compile Include="Repository\RepoDirector.cs" />
+    <Compile Include="Repository\RepoGenres.cs" />
+    <Compile Include="Repository\IRepoMovie.cs" />
     <Compile Include="Repository\IRepoUser.cs" />
     <Compile Include="UOW\IUOW.cs" />
     <Compile Include="UOW\UOW.cs" />
