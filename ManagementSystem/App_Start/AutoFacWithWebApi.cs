@@ -31,6 +31,7 @@ namespace ManagementSystem.App_Start
             builder.RegisterType<UserServices>().As<IUserServices>().InstancePerRequest();
             builder.RegisterType<MovieServices>().As<IMovieServices>().InstancePerRequest();
             builder.RegisterType<DirectorServices>().As<IDirectorServices>().InstancePerRequest();
+            builder.RegisterType<GenreServices>().As<IGenreServices>().InstancePerRequest();
             builder.RegisterType<UOW>().InstancePerRequest();
             
             Container = builder.Build();

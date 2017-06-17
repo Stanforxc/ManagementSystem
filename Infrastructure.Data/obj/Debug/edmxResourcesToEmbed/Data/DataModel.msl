@@ -111,5 +111,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="genres">
+      <EntityTypeMapping TypeName="DataModel.genre">
+        <MappingFragment StoreEntitySet="genre">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genreMovies">
+      <EntityTypeMapping TypeName="DataModel.genreMovie">
+        <MappingFragment StoreEntitySet="genreMovie">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="movieId" ColumnName="movieId" />
+          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

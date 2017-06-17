@@ -102,7 +102,6 @@ namespace Services
                     movie.movie_name = movieEntity.movie_name;
                     movie.online_time = movieEntity.online_time;
                     movie.star = movieEntity.star;
-                   // movie.director = movieEntity.director;
                     movie.cast = movieEntity.cast;
                     movie.price = movieEntity.price;
                     movie.runtime = movieEntity.runtime;

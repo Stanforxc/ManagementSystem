@@ -13,13 +13,18 @@ namespace Infrastructure.Data.UOW
     {
         private DataEntities _context = null;
 
+        //实体仓库
         private GenericRepository<user> _userRepository;
         private GenericRepository<movie> _movieRepository;
         private GenericRepository<director> _directorRepository;
+        private GenericRepository<genre> _genreRepositroy;
+
+        //关系映射仓库
         private GenericRepository<directorGenre> _directorGenreRepository;
         private GenericRepository<directorMovie> _directorMovieRepository;
         private GenericRepository<movieDirector> _movieDirectorRepository;
         private GenericRepository<movieGenre> _movieGenreRepository;
+        private GenericRepository<genreMovie> _genreMovieRepository;
         private bool disposed = false;
 
         public UOW()
@@ -104,6 +109,28 @@ namespace Infrastructure.Data.UOW
                     _movieGenreRepository = new GenericRepository<movieGenre>(_context);
                 }
                 return _movieGenreRepository;
+            }
+        }
+
+        public GenericRepository<genreMovie> GenreMovieRepository {
+            get
+            {
+                if(this._genreMovieRepository == null)
+                {
+                    _genreMovieRepository = new GenericRepository<genreMovie>(_context);
+                }
+                return _genreMovieRepository;
+            }
+        }
+
+        public GenericRepository<genre> GenreRepository {
+            get
+            {
+                if(this._genreRepositroy == null)
+                {
+                    _genreRepositroy = new GenericRepository<genre>(_context);
+                }
+                return _genreRepositroy;
             }
         }
 

@@ -30,6 +30,22 @@
           <Property Name="movie_Id" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="genre">
+          <Key>
+            <PropertyRef Name="genreStyle" />
+          </Key>
+          <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="genreMovie">
+          <Key>
+            <PropertyRef Name="genreStyle" />
+            <PropertyRef Name="movieId" />
+          </Key>
+          <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="movieId" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="45" />
+        </EntityType>
         <EntityType Name="movie">
           <Key>
             <PropertyRef Name="movie_name" />
@@ -135,6 +151,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="genreStyle">
+          <End Role="genre" Type="Self.genre" Multiplicity="1" />
+          <End Role="genreMovie" Type="Self.genreMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genre">
+              <PropertyRef Name="genreStyle" />
+            </Principal>
+            <Dependent Role="genreMovie">
+              <PropertyRef Name="genreStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="movie_Id">
+          <End Role="movie" Type="Self.movie" Multiplicity="1" />
+          <End Role="genreMovie" Type="Self.genreMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movie">
+              <PropertyRef Name="movie_name" />
+            </Principal>
+            <Dependent Role="genreMovie">
+              <PropertyRef Name="movieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="movieID">
           <End Role="movie" Type="Self.movie" Multiplicity="1" />
           <End Role="movieDirector" Type="Self.movieDirector" Multiplicity="*" />
@@ -163,6 +203,8 @@
           <EntitySet Name="director" EntityType="Self.director" Schema="Base" store:Type="Tables" />
           <EntitySet Name="directorGenre" EntityType="Self.directorGenre" Schema="Base" store:Type="Tables" />
           <EntitySet Name="directorMovie" EntityType="Self.directorMovie" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="genre" EntityType="Self.genre" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="genreMovie" EntityType="Self.genreMovie" Schema="Base" store:Type="Tables" />
           <EntitySet Name="movie" EntityType="Self.movie" Schema="Base" store:Type="Tables" />
           <EntitySet Name="movieDirector" EntityType="Self.movieDirector" Schema="Base" store:Type="Tables" />
           <EntitySet Name="movieGenre" EntityType="Self.movieGenre" Schema="Base" store:Type="Tables" />
@@ -178,6 +220,14 @@
           <AssociationSet Name="directorName" Association="Self.directorName">
             <End Role="director" EntitySet="director" />
             <End Role="directorGenre" EntitySet="directorGenre" />
+          </AssociationSet>
+          <AssociationSet Name="genreStyle" Association="Self.genreStyle">
+            <End Role="genre" EntitySet="genre" />
+            <End Role="genreMovie" EntitySet="genreMovie" />
+          </AssociationSet>
+          <AssociationSet Name="movie_Id" Association="Self.movie_Id">
+            <End Role="movie" EntitySet="movie" />
+            <End Role="genreMovie" EntitySet="genreMovie" />
           </AssociationSet>
           <AssociationSet Name="movieID" Association="Self.movieID">
             <End Role="movie" EntitySet="movie" />
@@ -219,6 +269,16 @@
           <AssociationSet Name="movieName" Association="DataModel.movieName">
             <End Role="movie" EntitySet="movies" />
             <End Role="movieGenre" EntitySet="movieGenres" />
+          </AssociationSet>
+          <EntitySet Name="genres" EntityType="DataModel.genre" />
+          <EntitySet Name="genreMovies" EntityType="DataModel.genreMovie" />
+          <AssociationSet Name="genreStyle" Association="DataModel.genreStyle">
+            <End Role="genre" EntitySet="genres" />
+            <End Role="genreMovie" EntitySet="genreMovies" />
+          </AssociationSet>
+          <AssociationSet Name="movie_Id" Association="DataModel.movie_Id">
+            <End Role="movie" EntitySet="movies" />
+            <End Role="genreMovie" EntitySet="genreMovies" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="role">
@@ -358,6 +418,7 @@
           <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="movieDirectors" Relationship="DataModel.movieID" FromRole="movie" ToRole="movieDirector" />
           <NavigationProperty Name="movieGenres" Relationship="DataModel.movieName" FromRole="movie" ToRole="movieGenre" />
+          <NavigationProperty Name="genreMovies" Relationship="DataModel.movie_Id" FromRole="movie" ToRole="genreMovie" />
         </EntityType>
         <Association Name="movieID">
           <End Type="DataModel.movie" Role="movie" Multiplicity="1" />
@@ -379,6 +440,49 @@
               <PropertyRef Name="movie_name" />
             </Principal>
             <Dependent Role="movieGenre">
+              <PropertyRef Name="movieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="genre">
+          <Key>
+            <PropertyRef Name="genreStyle" />
+          </Key>
+          <Property Name="genreStyle" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="genreMovies" Relationship="DataModel.genreStyle" FromRole="genre" ToRole="genreMovie" />
+        </EntityType>
+        <EntityType Name="genreMovie">
+          <Key>
+            <PropertyRef Name="genreStyle" />
+            <PropertyRef Name="movieId" />
+          </Key>
+          <Property Name="genreStyle" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="movieId" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="genre" Relationship="DataModel.genreStyle" FromRole="genreMovie" ToRole="genre" />
+          <NavigationProperty Name="movie" Relationship="DataModel.movie_Id" FromRole="genreMovie" ToRole="movie" />
+        </EntityType>
+        <Association Name="genreStyle">
+          <End Type="DataModel.genre" Role="genre" Multiplicity="1" />
+          <End Type="DataModel.genreMovie" Role="genreMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genre">
+              <PropertyRef Name="genreStyle" />
+            </Principal>
+            <Dependent Role="genreMovie">
+              <PropertyRef Name="genreStyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="movie_Id">
+          <End Type="DataModel.movie" Role="movie" Multiplicity="1" />
+          <End Type="DataModel.genreMovie" Role="genreMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movie">
+              <PropertyRef Name="movie_name" />
+            </Principal>
+            <Dependent Role="genreMovie">
               <PropertyRef Name="movieId" />
             </Dependent>
           </ReferentialConstraint>
@@ -496,6 +600,23 @@
                 <ScalarProperty Name="star" ColumnName="star" />
                 <ScalarProperty Name="online_time" ColumnName="online_time" />
                 <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genres">
+            <EntityTypeMapping TypeName="DataModel.genre">
+              <MappingFragment StoreEntitySet="genre">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genreMovies">
+            <EntityTypeMapping TypeName="DataModel.genreMovie">
+              <MappingFragment StoreEntitySet="genreMovie">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="movieId" ColumnName="movieId" />
+                <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

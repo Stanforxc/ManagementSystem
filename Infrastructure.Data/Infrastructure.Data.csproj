@@ -82,6 +82,12 @@
     <Compile Include="Data\directorMovie.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\genre.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\genreMovie.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\movie.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -112,7 +118,6 @@
     <Compile Include="Repository\IRepoUser.cs" />
     <Compile Include="UOW\IUOW.cs" />
     <Compile Include="UOW\UOW.cs" />
-    <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

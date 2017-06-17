@@ -36,5 +36,7 @@ namespace Infrastructure.Data.Data
         public virtual DbSet<movieDirector> movieDirectors { get; set; }
         public virtual DbSet<movieGenre> movieGenres { get; set; }
         public virtual DbSet<movie> movies { get; set; }
+        public virtual DbSet<genre> genres { get; set; }
+        public virtual DbSet<genreMovie> genreMovies { get; set; }
     }
 }

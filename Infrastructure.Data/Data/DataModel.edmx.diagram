@@ -20,6 +20,10 @@
         <EntityTypeShape EntityType="DataModel.movie" Width="1.5" PointX="9.125" PointY="3.625" />
         <AssociationConnector Association="DataModel.movieID" />
         <AssociationConnector Association="DataModel.movieName" />
+        <EntityTypeShape EntityType="DataModel.genre" Width="1.5" PointX="12" PointY="7.125" />
+        <EntityTypeShape EntityType="DataModel.genreMovie" Width="1.5" PointX="12.125" PointY="4.125" />
+        <AssociationConnector Association="DataModel.genreStyle" />
+        <AssociationConnector Association="DataModel.movie_Id" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -60,6 +60,7 @@ namespace ManagementSystem.Controllers
             return _movieServices.createMovie(movieEntity);
         }
 
+        [AllowAnonymous]
         public bool Put(string movie_name, [FromBody]MovieEntity movieEntity)
         {
             if (movie_name != null)

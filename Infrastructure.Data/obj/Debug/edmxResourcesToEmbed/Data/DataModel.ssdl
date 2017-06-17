@@ -25,6 +25,22 @@
     <Property Name="movie_Id" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="genre">
+    <Key>
+      <PropertyRef Name="genreStyle" />
+    </Key>
+    <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="genreMovie">
+    <Key>
+      <PropertyRef Name="genreStyle" />
+      <PropertyRef Name="movieId" />
+    </Key>
+    <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="movieId" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="45" />
+  </EntityType>
   <EntityType Name="movie">
     <Key>
       <PropertyRef Name="movie_name" />
@@ -130,6 +146,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="genreStyle">
+    <End Role="genre" Type="Self.genre" Multiplicity="1" />
+    <End Role="genreMovie" Type="Self.genreMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genreStyle" />
+      </Principal>
+      <Dependent Role="genreMovie">
+        <PropertyRef Name="genreStyle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="movie_Id">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="genreMovie" Type="Self.genreMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_name" />
+      </Principal>
+      <Dependent Role="genreMovie">
+        <PropertyRef Name="movieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="movieID">
     <End Role="movie" Type="Self.movie" Multiplicity="1" />
     <End Role="movieDirector" Type="Self.movieDirector" Multiplicity="*" />
@@ -158,6 +198,8 @@
     <EntitySet Name="director" EntityType="Self.director" Schema="Base" store:Type="Tables" />
     <EntitySet Name="directorGenre" EntityType="Self.directorGenre" Schema="Base" store:Type="Tables" />
     <EntitySet Name="directorMovie" EntityType="Self.directorMovie" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="genre" EntityType="Self.genre" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="genreMovie" EntityType="Self.genreMovie" Schema="Base" store:Type="Tables" />
     <EntitySet Name="movie" EntityType="Self.movie" Schema="Base" store:Type="Tables" />
     <EntitySet Name="movieDirector" EntityType="Self.movieDirector" Schema="Base" store:Type="Tables" />
     <EntitySet Name="movieGenre" EntityType="Self.movieGenre" Schema="Base" store:Type="Tables" />
@@ -173,6 +215,14 @@
     <AssociationSet Name="directorName" Association="Self.directorName">
       <End Role="director" EntitySet="director" />
       <End Role="directorGenre" EntitySet="directorGenre" />
+    </AssociationSet>
+    <AssociationSet Name="genreStyle" Association="Self.genreStyle">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="genreMovie" EntitySet="genreMovie" />
+    </AssociationSet>
+    <AssociationSet Name="movie_Id" Association="Self.movie_Id">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="genreMovie" EntitySet="genreMovie" />
     </AssociationSet>
     <AssociationSet Name="movieID" Association="Self.movieID">
       <End Role="movie" EntitySet="movie" />
