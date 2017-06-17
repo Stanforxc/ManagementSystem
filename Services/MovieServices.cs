@@ -24,48 +24,13 @@ namespace Services
             {
                 if (movieEntity != null)
                 {
-                    // 加入 movie 表
-                    Mapper.Initialize(x => x.CreateMap<MovieEntity,movie>()
-                        .ForMember(dest=>dest.movieDirectors,opt=>opt.Ignore())
-                        .ForMember(dest=>dest.movieGenres,opt=>opt.Ignore()));
-                    var movieModel = Mapper.Map<MovieEntity, movie>(movieEntity);
+                   movie movieModel= null;
+                   ICollection<movieDirector> movieDirector = null;
+                   ICollection<movieGenre> movieGenre = null;
 
-                    //加入 movieDirector 表
-
-                    Mapper.Initialize(cfg => {
-                        cfg.CreateMap<MovieEntity, ICollection<movieDirector>>()
-                            .ConstructProjectionUsing(
-                                p => p.MovieDirectors.Select(
-                                    md => new movieDirector
-                                    {
-                                        movie_Id = p.movie_name,
-                                        director = md.director,
-                                        description = p.MovieDirectors.FirstOrDefault(m => m.movie_Id == p.movie_name).description
-                                    }
-                                    ).ToList()
-                            );
-                    });
-
-                    var movieDirector = Mapper.Map<MovieEntity, ICollection<movieDirector>>(movieEntity);
+                    movieMapper(movieEntity,out movieModel, out movieDirector, out movieGenre);
 
 
-                    //加入 movieGenre 表
-
-                    Mapper.Initialize(t =>
-                    {
-                    t.CreateMap<MovieEntity, ICollection<movieGenre>>()
-                        .ConstructProjectionUsing(
-                            p => p.MovieGenres.Select(
-                                mg => new movieGenre
-                                {
-                                    genreStyle = mg.genreStyle,
-                                    description = p.description,
-                                    movieId = p.movie_name
-                                }
-                                ).ToList()
-                            );
-                    });
-                    var movieGenre = Mapper.Map<MovieEntity,ICollection<movieGenre>>(movieEntity);
 
                     _uow.MovieRepository.Insert(movieModel);
                     _uow.MovieDirectorRepository.InsertBatch(movieDirector);
@@ -81,15 +46,18 @@ namespace Services
 
         public bool DeleteMovie(string movie_name)
         {
+
             var success = false;
             if (movie_name != "")
             {
                 using (var scope = new TransactionScope())
                 {
-                    var user = _uow.MovieRepository.GetByID(movie_name);
-                    if (user != null)
+                    var movie = _uow.MovieRepository.GetByID(movie_name);
+                    if (movie != null)
                     {
-                        _uow.MovieRepository.Delete(user);
+                        _uow.MovieRepository.Delete(movie);
+                        _uow.MovieDirectorRepository.Delete(md => md.movie_Id == movie_name);
+                        _uow.MovieGenreRepository.Delete(mg => mg.movieId == movie_name);
                         _uow.Commit();
                         scope.Complete();
                         success = true;
@@ -146,6 +114,54 @@ namespace Services
                 }
             }
             return success;
+        }
+
+
+
+        // entity to model
+        private void movieMapper(MovieEntity movieEntity,out movie movieModel,out ICollection<movieDirector> movieDirectors, out ICollection<movieGenre> movieGenres)
+        {
+            Mapper.Initialize(x => x.CreateMap<MovieEntity, movie>()
+                       .ForMember(dest => dest.movieDirectors, opt => opt.Ignore())
+                       .ForMember(dest => dest.movieGenres, opt => opt.Ignore()));
+            movieModel = Mapper.Map<MovieEntity, movie>(movieEntity);
+
+            //加入 movieDirector 表
+
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<MovieEntity, ICollection<movieDirector>>()
+                    .ConstructProjectionUsing(
+                        p => p.MovieDirectors.Select(
+                            md => new movieDirector
+                            {
+                                movie_Id = p.movie_name,
+                                director = md.director,
+                                description = p.MovieDirectors.FirstOrDefault(m => m.movie_Id == p.movie_name).description
+                            }
+                            ).ToList()
+                    );
+            });
+
+            movieDirectors = Mapper.Map<MovieEntity, ICollection<movieDirector>>(movieEntity);
+
+
+            //加入 movieGenre 表
+
+            Mapper.Initialize(t =>
+            {
+                t.CreateMap<MovieEntity, ICollection<movieGenre>>()
+                    .ConstructProjectionUsing(
+                        p => p.MovieGenres.Select(
+                            mg => new movieGenre
+                            {
+                                genreStyle = mg.genreStyle,
+                                description = p.MovieGenres.FirstOrDefault(g => g.genreStyle == mg.genreStyle).description,
+                                movieId = p.movie_name
+                            }
+                            ).ToList()
+                        );
+            });
+            movieGenres = Mapper.Map<MovieEntity, ICollection<movieGenre>>(movieEntity);
         }
     }
 }

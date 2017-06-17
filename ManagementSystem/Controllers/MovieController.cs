@@ -69,6 +69,7 @@ namespace ManagementSystem.Controllers
             return false;
         }
 
+        [AllowAnonymous]
         public bool Delete(string movie_name)
         {
             if (movie_name != null)
