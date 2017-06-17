@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class DirectorGenre
+    public class DirectorMovie
     {
-        public string directorId { get; set; }
-        public string genreStyle { get; set; }
+        public string director_Id { get; set; }
+        public string movie_Id { get; set; }
         public string description { get; set; }
 
         public virtual DirectorEntity DirectorEntity { get; set; }

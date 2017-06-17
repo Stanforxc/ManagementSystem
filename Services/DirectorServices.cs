@@ -13,8 +13,6 @@ namespace Services
     public class DirectorServices : IDirectorServices
     {
         private readonly UOW _uow;
-
-        private IMapper _mapper;
         
         public DirectorServices(UOW uow)
         {
@@ -91,26 +89,32 @@ namespace Services
 
         public ICollection<DirectorGenre> GetDirectorByName(string director_name)
         {
-            var director = _uow.DirectoryRepository.GetByID(director_name);
-            //var genres = _uow.DirectoryRepository.getAllGenreOfDirector(director_name);
-            if (director != null)
-            {
-                /*
-                Mapper.Initialize(cfg => {
-                    cfg.CreateMap<director, ICollection<DirectorGenre>>()
-                    .ConstructProjectionUsing(
-                        p =>
-                            p.Generes.Select(g => new DirectorGenre { director_name = p.director_name, genre = g.genre})
-                            .ToList()
-                        );
-                });*/
-
-                var directorSet = Mapper.Map<director, ICollection<DirectorGenre>>(director);
-
-                return directorSet;
-            }
-            return null;
+            throw new NotImplementedException();
         }
+
+        /*
+public ICollection<Domain.Entities.directorGenre> GetDirectorByName(string director_name)
+{
+   var director = _uow.DirectoryRepository.GetByID(director_name);
+   //var genres = _uow.DirectoryRepository.getAllGenreOfDirector(director_name);
+   if (director != null)
+   {
+
+       Mapper.Initialize(cfg => {
+           cfg.CreateMap<director, ICollection<DirectorGenre>>()
+           .ConstructProjectionUsing(
+               p =>
+                   p.Generes.Select(g => new DirectorGenre { director_name = p.director_name, genre = g.genre})
+                   .ToList()
+               );
+       });
+
+       var directorSet = Mapper.Map<director, ICollection<Domain.Entities.directorGenre>>(director);
+
+       return directorSet;
+   }
+   return null;
+}*/
 
         public bool UpdateDirector(string director_name, DirectorEntity directorEntity)
         {

@@ -31,10 +31,10 @@ namespace Infrastructure.Data.Data
         public virtual DbSet<userrole> userroles { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<director> directors { get; set; }
-        public virtual DbSet<movie> movies { get; set; }
         public virtual DbSet<directorGenre> directorGenres { get; set; }
         public virtual DbSet<directorMovie> directorMovies { get; set; }
         public virtual DbSet<movieDirector> movieDirectors { get; set; }
         public virtual DbSet<movieGenre> movieGenres { get; set; }
+        public virtual DbSet<movie> movies { get; set; }
     }
 }

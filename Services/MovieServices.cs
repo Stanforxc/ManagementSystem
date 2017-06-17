@@ -24,22 +24,56 @@ namespace Services
             {
                 if (movieEntity != null)
                 {
-                    var movie = new movie
-                    {
-                        movie_name = movieEntity.movie_name,
-                        online_time = movieEntity.online_time,
-                        star = movieEntity.star,
-                        director = movieEntity.director,
-                        cast = movieEntity.cast,
-                        price = movieEntity.price,
-                        runtime = movieEntity.runtime,
-                        description = movieEntity.description
-                    };
+                    // 加入 movie 表
+                    Mapper.Initialize(x => x.CreateMap<MovieEntity,movie>()
+                        .ForMember(dest=>dest.movieDirectors,opt=>opt.Ignore())
+                        .ForMember(dest=>dest.movieGenres,opt=>opt.Ignore()));
+                    var movieModel = Mapper.Map<MovieEntity, movie>(movieEntity);
 
-                    _uow.MovieRepository.Insert(movie);
+                    //加入 movieDirector 表
+
+                    Mapper.Initialize(cfg => {
+                        cfg.CreateMap<MovieEntity, ICollection<movieDirector>>()
+                            .ConstructProjectionUsing(
+                                p => p.MovieDirectors.Select(
+                                    md => new movieDirector
+                                    {
+                                        movie_Id = p.movie_name,
+                                        director = md.director,
+                                        description = p.MovieDirectors.FirstOrDefault(m => m.movie_Id == p.movie_name).description
+                                    }
+                                    ).ToList()
+                            );
+                    });
+
+                    var movieDirector = Mapper.Map<MovieEntity, ICollection<movieDirector>>(movieEntity);
+
+
+                    //加入 movieGenre 表
+
+                    Mapper.Initialize(t =>
+                    {
+                    t.CreateMap<MovieEntity, ICollection<movieGenre>>()
+                        .ConstructProjectionUsing(
+                            p => p.MovieGenres.Select(
+                                mg => new movieGenre
+                                {
+                                    genreStyle = mg.genreStyle,
+                                    description = p.description,
+                                    movieId = p.movie_name
+                                }
+                                ).ToList()
+                            );
+                    });
+                    var movieGenre = Mapper.Map<MovieEntity,ICollection<movieGenre>>(movieEntity);
+
+                    _uow.MovieRepository.Insert(movieModel);
+                    _uow.MovieDirectorRepository.InsertBatch(movieDirector);
+                    _uow.MovieGenreRepository.InsertBatch(movieGenre);
+
                     _uow.Commit();
                     scope.Complete();
-                    return movie.movie_name;
+                    return movieModel.movie_name;
                 }
                 return "-1";
             }
@@ -100,7 +134,7 @@ namespace Services
                     movie.movie_name = movieEntity.movie_name;
                     movie.online_time = movieEntity.online_time;
                     movie.star = movieEntity.star;
-                    movie.director = movieEntity.director;
+                   // movie.director = movieEntity.director;
                     movie.cast = movieEntity.cast;
                     movie.price = movieEntity.price;
                     movie.runtime = movieEntity.runtime;

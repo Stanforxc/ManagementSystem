@@ -1,23 +1,27 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Domain.Entities
 {
     public class MovieEntity
     {
-        [Key]
-        [Required]
-        [Display(Name = " movie name" )]
-        public string movie_name { get; set; }
+        public MovieEntity()
+        {
+            this.MovieDirectors = new HashSet<MovieDirector>();
+            this.MovieGenres = new HashSet<MovieGenre>();
+        }
 
-        [Display(Name = "online name")]
-        public DateTime online_time { get; set; }
-        public int star { get; set; }
-        public string director { get; set; }
+        public string movie_name { get; set; }
+        public Nullable<System.DateTime> online_time { get; set; }
+        public Nullable<int> star { get; set; }
         public string cast { get; set; }
-        public int price { get; set; }
+        public Nullable<int> price { get; set; }
         public string runtime { get; set; }
         public string description { get; set; }
- 
+
+        public virtual ICollection<MovieDirector> MovieDirectors { get; set; }
+
+        public virtual ICollection<MovieGenre> MovieGenres { get; set; }
+
     }
 }

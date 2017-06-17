@@ -32,12 +32,10 @@
     <Property Name="movie_name" Type="varchar" MaxLength="128" Nullable="false" />
     <Property Name="online_time" Type="datetime" Precision="0" />
     <Property Name="star" Type="int" />
-    <Property Name="director" Type="varchar" MaxLength="45" />
     <Property Name="cast" Type="varchar" MaxLength="45" />
     <Property Name="price" Type="int" />
     <Property Name="runtime" Type="varchar" MaxLength="45" />
     <Property Name="description" Type="varchar" MaxLength="100" />
-    <Property Name="genres" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="movieDirector">
     <Key>

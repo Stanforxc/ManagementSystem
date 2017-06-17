@@ -11,6 +11,7 @@ namespace Infrastructure.Data.GenericRepository
         IEnumerable<T> Get();
         T GetByID(object id);
         void Insert(T entity);
+        void InsertBatch(ICollection<T> entities);
         void Delete(object id);
         void Delete(T entityToDelete);
         void Uppdate(T entityToUpdate);

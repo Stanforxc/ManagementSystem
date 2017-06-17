@@ -24,12 +24,10 @@ namespace Infrastructure.Data.Data
         public string movie_name { get; set; }
         public Nullable<System.DateTime> online_time { get; set; }
         public Nullable<int> star { get; set; }
-        public string director { get; set; }
         public string cast { get; set; }
         public Nullable<int> price { get; set; }
         public string runtime { get; set; }
         public string description { get; set; }
-        public string genres { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<movieDirector> movieDirectors { get; set; }

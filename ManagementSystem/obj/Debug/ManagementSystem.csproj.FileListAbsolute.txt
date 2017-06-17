@@ -135,7 +135,6 @@ D:\FinalProject\ManagementSystem\ManagementSystem\bin\Infrastructure.Data.pdb
 D:\FinalProject\ManagementSystem\ManagementSystem\bin\Services.Interfaces.pdb
 D:\FinalProject\ManagementSystem\ManagementSystem\bin\Services.pdb
 D:\FinalProject\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ApplicationInsights.config
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\roslyn\csc.exe
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\roslyn\csc.exe.config
@@ -283,5 +282,6 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web.Http.Owin.resources.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.pdb

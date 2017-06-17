@@ -38,7 +38,10 @@
   <ItemGroup>
     <Compile Include="DirectorEntity.cs" />
     <Compile Include="DirectorGenre.cs" />
+    <Compile Include="DirectorMovie.cs" />
+    <Compile Include="MovieDirector.cs" />
     <Compile Include="MovieEntity.cs" />
+    <Compile Include="MovieGenre.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

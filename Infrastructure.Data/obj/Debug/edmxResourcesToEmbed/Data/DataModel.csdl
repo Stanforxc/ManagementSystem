@@ -7,7 +7,6 @@
     <EntitySet Name="userroles" EntityType="DataModel.userrole" />
     <EntitySet Name="users" EntityType="DataModel.user" />
     <EntitySet Name="directors" EntityType="DataModel.director" />
-    <EntitySet Name="movies" EntityType="DataModel.movie" />
     <EntitySet Name="directorGenres" EntityType="DataModel.directorGenre" />
     <AssociationSet Name="directorName" Association="DataModel.directorName">
       <End Role="director" EntitySet="directors" />
@@ -20,6 +19,7 @@
       <End Role="director" EntitySet="directors" />
       <End Role="directorMovie" EntitySet="directorMovies" />
     </AssociationSet>
+    <EntitySet Name="movies" EntityType="DataModel.movie" />
     <AssociationSet Name="movieID" Association="DataModel.movieID">
       <End Role="movie" EntitySet="movies" />
       <End Role="movieDirector" EntitySet="movieDirectors" />
@@ -89,22 +89,6 @@
     <NavigationProperty Name="directorGenres" Relationship="DataModel.directorName" FromRole="director" ToRole="directorGenre" />
     <NavigationProperty Name="directorMovies" Relationship="DataModel.director_ID" FromRole="director" ToRole="directorMovie" />
   </EntityType>
-  <EntityType Name="movie">
-    <Key>
-      <PropertyRef Name="movie_name" />
-    </Key>
-    <Property Name="movie_name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="online_time" Type="DateTime" />
-    <Property Name="star" Type="Int32" />
-    <Property Name="director" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="cast" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="price" Type="Int32" />
-    <Property Name="runtime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="genres" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="movieDirectors" Relationship="DataModel.movieID" FromRole="movie" ToRole="movieDirector" />
-    <NavigationProperty Name="movieGenres" Relationship="DataModel.movieName" FromRole="movie" ToRole="movieGenre" />
-  </EntityType>
   <EntityType Name="directorGenre">
     <Key>
       <PropertyRef Name="directorId" />
@@ -169,6 +153,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="movie">
+    <Key>
+      <PropertyRef Name="movie_name" />
+    </Key>
+    <Property Name="movie_name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="online_time" Type="DateTime" />
+    <Property Name="star" Type="Int32" />
+    <Property Name="cast" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="runtime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="movieDirectors" Relationship="DataModel.movieID" FromRole="movie" ToRole="movieDirector" />
+    <NavigationProperty Name="movieGenres" Relationship="DataModel.movieName" FromRole="movie" ToRole="movieGenre" />
+  </EntityType>
   <Association Name="movieID">
     <End Type="DataModel.movie" Role="movie" Multiplicity="1" />
     <End Type="DataModel.movieDirector" Role="movieDirector" Multiplicity="*" />

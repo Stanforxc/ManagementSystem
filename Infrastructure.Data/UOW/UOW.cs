@@ -16,6 +16,10 @@ namespace Infrastructure.Data.UOW
         private GenericRepository<user> _userRepository;
         private GenericRepository<movie> _movieRepository;
         private GenericRepository<director> _directorRepository;
+        private GenericRepository<directorGenre> _directorGenreRepository;
+        private GenericRepository<directorMovie> _directorMovieRepository;
+        private GenericRepository<movieDirector> _movieDirectorRepository;
+        private GenericRepository<movieGenre> _movieGenreRepository;
         private bool disposed = false;
 
         public UOW()
@@ -59,6 +63,49 @@ namespace Infrastructure.Data.UOW
             }
         }
 
+        public GenericRepository<directorGenre> DirectorGenreRepository {
+            get
+            {
+                if (this._directorGenreRepository == null)
+                {
+                    _directorGenreRepository = new GenericRepository<directorGenre>(_context);
+                }
+                return _directorGenreRepository;
+            }
+        }
+
+        public GenericRepository<directorMovie> DirectorMovieRepository {
+            get
+            {
+                if(this._directorMovieRepository == null)
+                {
+                    _directorMovieRepository = new GenericRepository<directorMovie>(_context);
+                }
+                return _directorMovieRepository;
+            }
+        }
+
+        public GenericRepository<movieDirector> MovieDirectorRepository {
+            get
+            {
+                if(this._movieDirectorRepository == null)
+                {
+                    _movieDirectorRepository = new GenericRepository<movieDirector>(_context);
+                }
+                return _movieDirectorRepository;
+            }
+        }
+
+        public GenericRepository<movieGenre> MovieGenreRepository {
+            get
+            {
+                if(this._movieGenreRepository == null)
+                {
+                    _movieGenreRepository = new GenericRepository<movieGenre>(_context);
+                }
+                return _movieGenreRepository;
+            }
+        }
 
         public void Commit()
         {
@@ -67,6 +114,19 @@ namespace Infrastructure.Data.UOW
                 _context.SaveChanges();
             }catch(DbEntityValidationException e)
             {
+                var outputLines = new List<string>();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    outputLines.Add(string.Format(
+                        "{0}: Entity of type \"{1}\" in state \"{2}\" has the following validation errors:", DateTime.Now,
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State));
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        outputLines.Add(string.Format("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage));
+                    }
+                }
+                System.IO.File.AppendAllLines(@"C:\errors.txt", outputLines);
+
                 throw e;
             }
         }

@@ -104,6 +104,12 @@ namespace Infrastructure.Data.GenericRepository
             return DbSet.First<T>(predicate);
         }
 
-
+        public void InsertBatch(ICollection<T> entities)
+        {
+           foreach(var entity in entities)
+            {
+                Insert(entity);
+            }
+        }
     }
 }
