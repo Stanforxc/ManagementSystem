@@ -12,17 +12,12 @@ namespace Infrastructure.Data.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Genere
+    public partial class directorMovie
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Genere()
-        {
-            this.directors = new HashSet<director>();
-        }
+        public string director_Id { get; set; }
+        public string movie_Id { get; set; }
+        public string description { get; set; }
     
-        public string genre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<director> directors { get; set; }
+        public virtual director director { get; set; }
     }
 }

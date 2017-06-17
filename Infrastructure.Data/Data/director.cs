@@ -17,13 +17,16 @@ namespace Infrastructure.Data.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public director()
         {
-            this.Generes = new HashSet<Genere>();
+            this.directorGenres = new HashSet<directorGenre>();
+            this.directorMovies = new HashSet<directorMovie>();
         }
     
         public string director_name { get; set; }
         public Nullable<System.DateTime> born_date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Genere> Generes { get; set; }
+        public virtual ICollection<directorGenre> directorGenres { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<directorMovie> directorMovies { get; set; }
     }
 }

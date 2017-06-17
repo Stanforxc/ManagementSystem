@@ -14,16 +14,7 @@ namespace Infrastructure.Data.Data
     
     public partial class role
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public role()
-        {
-            this.users = new HashSet<user>();
-        }
-    
         public string Id { get; set; }
         public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user> users { get; set; }
     }
 }

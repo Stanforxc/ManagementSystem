@@ -17,7 +17,5 @@ namespace Infrastructure.Data.Data
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
         public string UserId { get; set; }
-    
-        public virtual user user { get; set; }
     }
 }

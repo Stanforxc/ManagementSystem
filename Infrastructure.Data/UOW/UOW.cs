@@ -15,8 +15,7 @@ namespace Infrastructure.Data.UOW
 
         private GenericRepository<user> _userRepository;
         private GenericRepository<movie> _movieRepository;
-        private RepoDirector _directorRepository;
-        private RepoGenres _genreRepository;
+        private GenericRepository<director> _directorRepository;
         private bool disposed = false;
 
         public UOW()
@@ -48,26 +47,15 @@ namespace Infrastructure.Data.UOW
             }
         }
 
-        public RepoDirector DirectoryRepository
+        public GenericRepository<director> DirectoryRepository
         {
             get
             {
                 if (this._directorRepository == null)
                 {
-                    _directorRepository = new RepoDirector(_context);
+                    _directorRepository = new GenericRepository<director>(_context);
                 }
                 return _directorRepository;
-            }
-        }
-
-        public RepoGenres GenereRepository
-        {
-            get{
-                if (this._genreRepository == null)
-                {
-                    _genreRepository = new RepoGenres(_context);
-                }
-                return _genreRepository;
             }
         }
 

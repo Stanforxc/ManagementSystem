@@ -17,7 +17,8 @@ namespace Infrastructure.Data.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public movie()
         {
-            this.Histories = new HashSet<History>();
+            this.movieDirectors = new HashSet<movieDirector>();
+            this.movieGenres = new HashSet<movieGenre>();
         }
     
         public string movie_name { get; set; }
@@ -28,8 +29,11 @@ namespace Infrastructure.Data.Data
         public Nullable<int> price { get; set; }
         public string runtime { get; set; }
         public string description { get; set; }
+        public string genres { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<History> Histories { get; set; }
+        public virtual ICollection<movieDirector> movieDirectors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<movieGenre> movieGenres { get; set; }
     }
 }

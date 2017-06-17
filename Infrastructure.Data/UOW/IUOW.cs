@@ -12,8 +12,7 @@ namespace Infrastructure.Data.UOW
         void Commit();
         GenericRepository<user> UserRepository { get; }
         GenericRepository<movie> MovieRepository { get; }
-        RepoDirector DirectoryRepository { get; }
-        RepoGenres GenereRepository { get; }
+        GenericRepository<director> DirectoryRepository { get; }
 
     }
 }

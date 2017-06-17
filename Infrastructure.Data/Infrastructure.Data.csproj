@@ -76,13 +76,19 @@
     <Compile Include="Data\director.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Genere.cs">
+    <Compile Include="Data\directorGenre.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\History.cs">
+    <Compile Include="Data\directorMovie.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\movie.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\movieDirector.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\movieGenre.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\role.cs">
@@ -97,10 +103,11 @@
     <Compile Include="Data\userlogin.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\userrole.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="GenericRepository\IRepository.cs" />
-    <Compile Include="Repository\RepoDirector.cs" />
-    <Compile Include="Repository\RepoGenres.cs" />
     <Compile Include="Repository\IRepoMovie.cs" />
     <Compile Include="Repository\IRepoUser.cs" />
     <Compile Include="UOW\IUOW.cs" />

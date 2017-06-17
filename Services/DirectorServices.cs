@@ -27,7 +27,7 @@ namespace Services
                 if (directorEntity != null)
                 {
 
-                    Mapper.Initialize(x => x.CreateMap<GenresEntity, Genere>());
+                  //  Mapper.Initialize(x => x.CreateMap<GenresEntity, Genere>());
                    // var genres = Mapper.Map<ICollection<GenresEntity>, ICollection<Genere>>(directorEntity.Genre);
 
                     var director = new director
@@ -39,7 +39,7 @@ namespace Services
 
                     try
                     {
-                        _uow.GenereRepository.ManyToManyDirectorGenre(director);
+                        //_uow.GenereRepository.ManyToManyDirectorGenre(director);
                         _uow.DirectoryRepository.Insert(director);
                     }
                     catch (Exception e)
@@ -92,10 +92,10 @@ namespace Services
         public ICollection<DirectorGenre> GetDirectorByName(string director_name)
         {
             var director = _uow.DirectoryRepository.GetByID(director_name);
-            var genres = _uow.DirectoryRepository.getAllGenreOfDirector(director_name);
+            //var genres = _uow.DirectoryRepository.getAllGenreOfDirector(director_name);
             if (director != null)
             {
-
+                /*
                 Mapper.Initialize(cfg => {
                     cfg.CreateMap<director, ICollection<DirectorGenre>>()
                     .ConstructProjectionUsing(
@@ -103,7 +103,7 @@ namespace Services
                             p.Generes.Select(g => new DirectorGenre { director_name = p.director_name, genre = g.genre})
                             .ToList()
                         );
-                });
+                });*/
 
                 var directorSet = Mapper.Map<director, ICollection<DirectorGenre>>(director);
 

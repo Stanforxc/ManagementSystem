@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectorServices.cs" />
-    <Compile Include="GenresServices.cs" />
     <Compile Include="MovieServices.cs" />
     <Compile Include="UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

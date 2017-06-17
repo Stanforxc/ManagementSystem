@@ -12,14 +12,12 @@ namespace Infrastructure.Data.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class History
+    public partial class movieDirector
     {
-        public string movie_name { get; set; }
-        public Nullable<System.DateTime> operationTime { get; set; }
-        public string operationType { get; set; }
-        public string user_name { get; set; }
+        public string movie_Id { get; set; }
+        public string director { get; set; }
+        public string description { get; set; }
     
-        public virtual user user { get; set; }
         public virtual movie movie { get; set; }
     }
 }
