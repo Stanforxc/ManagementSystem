@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityModel;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Crud
 {
@@ -140,7 +142,15 @@ namespace Crud
         public List<user> getAllUserOfDevice(device d) {
             try
             {
-                return (from du in d.device_user select du.user).ToList();
+                var ret = (from du in d.device_user select du.user).ToList();
+
+                foreach (var item in ret) {
+                    entity.Entry(item).State = EntityState.Detached;
+                    item.device_user.Clear();
+                    item.histories.Clear();
+                }
+                entity.SaveChanges();
+                return ret;
             }
             catch (Exception e) {
                 Console.Write(e.Message);
@@ -151,12 +161,20 @@ namespace Crud
         public Boolean addUserToDevice(device d, user u) {
             try
             {
-                device_user du = new device_user();
+                List<device_user> du_his = (from du in entity.device_user where du.user_id.CompareTo(u.id) == 0 where du.device_id == d.id select du).ToList();
 
-                du.device_id = d.id;
-                du.user_id = u.id;
 
-                entity.device_user.Add(du);
+                if (du_his.Count()!=0) {
+                    return false;
+                }
+
+                device_user du_new = new device_user();
+
+                du_new.device_id = d.id;
+                du_new.user_id = u.id;
+               
+
+                entity.device_user.Add(du_new);
                 entity.SaveChanges();
 
                 return true;

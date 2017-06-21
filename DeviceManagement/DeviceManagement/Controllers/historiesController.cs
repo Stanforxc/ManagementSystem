@@ -10,17 +10,25 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EntityModel;
-
+using Crud;
 namespace DeviceManagement.Controllers
 {
     public class historiesController : ApiController
     {
         private Entities db = new Entities();
 
+        private HistoryCrudOperator historyCrudOperator = new HistoryCrudOperator();
+
         // GET: api/histories
-        public IQueryable<history> Gethistories()
+        public List<history> Gethistories()
         {
-            return db.histories;
+            List<history> ret_list = (from his in db.histories select his).ToList();
+
+            foreach (var item in ret_list) {
+                db.Entry(item).State = EntityState.Detached;
+            }
+
+            return ret_list;
         }
 
         // GET: api/histories/5
@@ -80,7 +88,8 @@ namespace DeviceManagement.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.histories.Add(history);
+            history.time = DateTime.Now.ToString();
+            this.historyCrudOperator.create(history);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = history.id }, history);
@@ -101,6 +110,8 @@ namespace DeviceManagement.Controllers
 
             return Ok(history);
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

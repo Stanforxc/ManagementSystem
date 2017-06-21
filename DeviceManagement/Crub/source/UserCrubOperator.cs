@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityModel;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Crud
 {
@@ -110,9 +112,16 @@ namespace Crud
         public List<device> getAllDeviceOfUser(user renter) {
             try
             {
-                IEnumerable<device> ret = (from du in renter.device_user
-                                          select du.device).AsEnumerable();
-                return ret.ToList();
+                List<device> ret = (from du in renter.device_user
+                                          select du.device).ToList();
+                foreach (var item in ret) {
+                    entity.Entry(item).State = EntityState.Detached;
+                    item.device_user.Clear();
+                    item.histories.Clear();
+                   
+                }
+
+                return ret;
             }
             catch (Exception e) {
                 Console.Write(e.Message);

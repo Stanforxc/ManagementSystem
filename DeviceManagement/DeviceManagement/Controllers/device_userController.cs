@@ -23,9 +23,15 @@ namespace DeviceManagement.Controllers
         private UserCrubOperator userCrudOperator = new UserCrubOperator();
 
         // GET: api/device_user
-        public IQueryable<device_user> Getdevice_user()
+        public List<device_user> Getdevice_user()
         {
-            return db.device_user;
+            List<device_user> ret_list = (from du in db.device_user select du).ToList();
+
+            foreach (var item in ret_list) {
+                db.Entry(item).State = EntityState.Deleted;
+            }
+
+            return ret_list;
         }
 
         // GET: api/device_user/5
@@ -61,7 +67,7 @@ namespace DeviceManagement.Controllers
 
             if (deviceCrudOperator.addUserToDevice(d, u))
             {
-                if (deviceCrudOperator.update()) {
+                if (!deviceCrudOperator.update()) {
                     return NotFound();
                 }
                 return StatusCode(HttpStatusCode.NoContent);
@@ -102,31 +108,36 @@ namespace DeviceManagement.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.device_user.Add(device_user);
+            string user_id = device_user.user_id;
+            int dev_id = device_user.device_id;
+            user u = this.userCrudOperator.queryById(user_id);
+            device d = this.deviceCrudOperator.queryById(dev_id);
 
-            try
+            if (null == u || null == d)
             {
-                await db.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateException)
+
+            if (deviceCrudOperator.addUserToDevice(d, u))
             {
-                if (device_userExists(device_user.rela_id))
+                if (!deviceCrudOperator.update())
                 {
-                    return Conflict();
+                    return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                return NotFound();
             }
 
             return CreatedAtRoute("DefaultApi", new { id = device_user.rela_id }, device_user);
         }
 
-        // DELETE: api/device_user?dev_id=...&user_id=...  test
+        // DELETE: api/device_user/delete?dev_id=...&user_id=...  test
         [ResponseType(typeof(device_user))]
         [HttpGet]
-        [Route("api/device_user")]
+        [Route("api/device_user/delete")]
         public async Task<IHttpActionResult> Deletedevice_user(int dev_id, string user_id)
         {
 
@@ -152,6 +163,25 @@ namespace DeviceManagement.Controllers
             //    return NotFound();
             //}
         }
+
+        [HttpGet]
+        [Route("api/device_user/get_user")]
+        public List<user> getUserOfDevice(int device_id) {
+
+            device d = this.deviceCrudOperator.queryById(device_id);
+
+            return this.deviceCrudOperator.getAllUserOfDevice(d);
+        }
+
+        [HttpGet]
+        [Route("api/device_user/get_device")]
+        public List<device> getDeviceOfUser(string user_id)
+        {
+            user u = this.userCrudOperator.queryById(user_id);
+
+            return this.userCrudOperator.getAllDeviceOfUser(u);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
