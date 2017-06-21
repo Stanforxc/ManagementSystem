@@ -111,6 +111,30 @@ namespace DeviceManagement.Controllers
             return Ok(history);
         }
 
+        [HttpGet]
+        [Route("api/histories/get_his_user")]
+        public  List<history> getHisOfUser(string user_id) {
+
+            List<history> ret = (from his in db.histories where his.user_id.CompareTo(user_id) == 0 select his).ToList();
+            foreach (var item in ret)
+            {
+                db.Entry(item).State = EntityState.Detached;
+            }
+            return ret;
+        }
+
+        [HttpGet]
+        [Route("api/histories/get_his_dev")]
+        public List<history> getHisOfDev(int dev_id)
+        {
+
+            List<history> ret = (from his in db.histories where his.device_id == dev_id select his).ToList();
+            foreach (var item in ret)
+            {
+                db.Entry(item).State = EntityState.Detached;
+            }
+            return ret;
+        }
 
 
         protected override void Dispose(bool disposing)

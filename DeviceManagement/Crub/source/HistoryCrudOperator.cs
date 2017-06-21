@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityModel;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+
 namespace Crud
 {
     public class HistoryCrudOperator
@@ -66,6 +70,49 @@ namespace Crud
             catch (Exception e) {
                 Console.Write(e.Message);
                 return false;
+            }
+        }
+
+        public List<history> getAllHisOfUser(user u) {
+            try
+            {
+                var ret = (from his in u.histories select his).ToList();
+
+                foreach (var item in ret)
+                {
+                    //item.device = null;
+                    //item.user = null;
+                    entity.Entry(item).State = EntityState.Detached;
+                }
+                return ret;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+                return null;
+            }
+        }
+
+        public List<history> getAllHisOfDev(device d)
+        {
+            try
+            {
+                var ret = (from his in d.histories select his).ToList();
+
+                foreach (var item in ret)
+                {
+                    //item.device = null;
+                    //item.user = null;
+                    entity.Entry(item).State = EntityState.Detached;
+                    
+                }
+                entity.SaveChanges();
+                return ret;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+                return null;
             }
         }
 
