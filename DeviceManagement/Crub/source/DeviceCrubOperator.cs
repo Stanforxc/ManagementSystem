@@ -104,9 +104,15 @@ namespace Crud
             {
                 device dev_to_del = (from d in entity.devices where d.id == id select d).First();
 
-                IEnumerable<device_user> all_rec = dev_to_del.device_user.AsEnumerable();
+                //删除用户设备表
+                List<device_user> du_list = (from du in entity.device_user where du.device_id == id select du).ToList();
 
-                entity.device_user.RemoveRange(all_rec);
+                entity.device_user.RemoveRange(du_list);
+
+                //删除历史纪录
+                List<history> his_list = (from his in entity.histories where his.device_id == id select his).ToList();
+
+                entity.histories.RemoveRange(his_list);
 
                 entity.devices.Remove(dev_to_del);
 
@@ -164,7 +170,7 @@ namespace Crud
         public Boolean deleteUserFromDevice(device d, user u) {
             try
             {
-                device_user record = (from du in d.device_user where du.device_id == d.id select du).First();
+                device_user record = (from du in entity.device_user where du.device_id == d.id where du.user_id.CompareTo(u.id)==0 select du).First();
 
                 entity.device_user.Remove(record);
 

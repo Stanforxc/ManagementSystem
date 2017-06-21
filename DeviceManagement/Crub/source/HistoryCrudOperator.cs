@@ -78,7 +78,9 @@ namespace Crud
                                   group h_1.user_id by h_1.device_id into g
                                   select new { id = g.Key, count = g.Count()};
 
-                return best_id = (count_table.Max(d => d.count)).id;
+                // var best_id = count_table.Ma
+
+                return 1;
             }
             catch (Exception e) {
                 Console.Write(e.Message);

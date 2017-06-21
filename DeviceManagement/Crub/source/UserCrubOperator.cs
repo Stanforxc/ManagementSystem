@@ -75,6 +75,13 @@ namespace Crud
             {
                 user user_to_delete = (from u in entity.users where u.id.CompareTo(id) == 0 select u).First();
 
+                //删除所有设备用户
+                List<device_user> device_user_list = (from du in entity.device_user where du.user_id.CompareTo(id) == 0 select du).ToList();
+                entity.device_user.RemoveRange(device_user_list);
+                //删除所有的历史纪录
+                List<history> his_list = (from his in entity.histories where his.user_id.CompareTo(id) == 0 select his).ToList();
+                entity.histories.RemoveRange(his_list);
+
                 entity.users.Remove(user_to_delete);
 
                 entity.SaveChanges();
@@ -134,7 +141,7 @@ namespace Crud
         public Boolean deleteDeviceFromUser(user u, device d) {
             try
             {
-                device_user record = (from du in u.device_user where du.device_id == d.id select du).First();
+                device_user record = (from du in entity.device_user where du.device_id == d.id select du).First();
 
                 entity.device_user.Remove(record);
 
@@ -147,6 +154,7 @@ namespace Crud
                 return false;
             }
         }
+
         ~UserCrubOperator() {
             entity.Dispose();
         }

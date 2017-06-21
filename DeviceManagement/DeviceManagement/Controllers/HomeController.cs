@@ -46,15 +46,16 @@ namespace DeviceManagement.Controllers
 
             list.name = "ipad air";
 
-            decOperator.update(list);
+            decOperator.update();
 
         }
 
         private void deleteTest() {
             UserCrubOperator op = new UserCrubOperator();
             DeviceCrubOperator dop = new DeviceCrubOperator();
-            dop.delete(3);
-            Console.Write(1);
+            HistoryCrudOperator hop = new HistoryCrudOperator();
+
+            //int i = hop.bestOfType_1();
             
         }
 
