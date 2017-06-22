@@ -11,13 +11,23 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using EntityModel;
 using Crud;
+using System.Web.Http.Cors;
+using encryption;
+using Service;
+
 namespace DeviceManagement.Controllers
 {
+
+    [EnableCors("*", "*", "*")]
     public class usersController : ApiController
     {
         private Entities db = new Entities();
 
         private UserCrubOperator userCrudOperator = new UserCrubOperator();
+
+        private MD5encryptor md = new MD5encryptor();
+
+        private RecommendService recom = new RecommendService();
 
         // GET: api/users
         public List<user> Getusers()
@@ -62,6 +72,9 @@ namespace DeviceManagement.Controllers
                 return BadRequest();
             }
 
+            //加密密码
+            user.password = md.encrypt(user.password, user.id);
+
             db.Entry(user).State = EntityState.Modified;
 
             try
@@ -91,6 +104,9 @@ namespace DeviceManagement.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            //加密密码
+            user.password = md.encrypt(user.password, user.id);
 
             db.users.Add(user);
 
@@ -127,6 +143,15 @@ namespace DeviceManagement.Controllers
 
             
         }
+
+        [HttpGet]
+        [Route("api/user/recommend")]
+        public List<int> recommend(string type) {
+
+            return recom.recommend(type); 
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

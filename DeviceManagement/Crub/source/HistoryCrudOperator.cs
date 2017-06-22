@@ -117,7 +117,7 @@ namespace Crud
         }
 
 
-        public int bestOfType_1(string type_1) {
+        public List<int> bestOfType_1(string type_1) {
             try
             {
                 var count_table = from h_1 in entity.histories
@@ -125,13 +125,17 @@ namespace Crud
                                   group h_1.user_id by h_1.device_id into g
                                   select new { id = g.Key, count = g.Count()};
 
-                // var best_id = count_table.Ma
+                List<int> ret_list = new List<int>();
 
-                return 1;
+                foreach (var item in count_table) {
+                    ret_list.Add(item.id);
+                }
+
+                return ret_list;
             }
             catch (Exception e) {
                 Console.Write(e.Message);
-                return 0;
+                return null;
             }
         }
     }

@@ -11,9 +11,11 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using EntityModel;
 using Crud;
-
+using System.Web.Http.Cors;
 namespace DeviceManagement.Controllers
 {
+
+    [EnableCors("*","*","*")]
     public class device_userController : ApiController
     {
         private Entities db = new Entities();

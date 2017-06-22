@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EntityModel;
-
+using System.Web.Http.Cors;
 namespace DeviceManagement.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class devicesController : ApiController
     {
         private Entities db = new Entities();

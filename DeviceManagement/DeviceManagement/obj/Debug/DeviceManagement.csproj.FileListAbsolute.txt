@@ -132,3 +132,10 @@ E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\ru\System.Spatial.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\zh-Hans\System.Spatial.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\zh-Hant\System.Spatial.resources.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\System.Web.Cors.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\System.Web.Http.Cors.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\System.Web.Http.Cors.xml
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\encryption.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\Service.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\Service.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\DeviceManagement\bin\Service.dll.config
