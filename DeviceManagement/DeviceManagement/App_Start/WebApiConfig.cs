@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using DeviceManagement.MesgHandle;
 
 namespace DeviceManagement
 {
@@ -22,6 +23,10 @@ namespace DeviceManagement
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Filters.Add(
+                new RequestFilter() 
             );
             /*
             config.Routes.MapHttpRoute(

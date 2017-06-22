@@ -20,3 +20,6 @@ E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\bin\Debu
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\obj\Debug\Service.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\obj\Debug\Service.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\bin\Debug\CLI.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\bin\Debug\CLI.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Service\bin\Debug\TopSdk.dll

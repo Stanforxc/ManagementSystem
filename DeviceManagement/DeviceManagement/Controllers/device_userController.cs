@@ -24,6 +24,8 @@ namespace DeviceManagement.Controllers
 
         private UserCrubOperator userCrudOperator = new UserCrubOperator();
 
+        private HistoryCrudOperator historyCrudOperator = new HistoryCrudOperator();
+
         // GET: api/device_user
         public List<device_user> Getdevice_user()
         {
@@ -126,6 +128,15 @@ namespace DeviceManagement.Controllers
                 {
                     return NotFound();
                 }
+                //  添加借历史纪录
+                history his = new history();
+
+                his.device_id = d.id;
+                his.user_id = u.id;
+                his.time = DateTime.Now.ToString();
+                his.type = 0;
+                historyCrudOperator.create(his);
+
                 return StatusCode(HttpStatusCode.NoContent);
             }
             else
@@ -137,6 +148,7 @@ namespace DeviceManagement.Controllers
         }
 
         // DELETE: api/device_user/delete?dev_id=...&user_id=...  test
+  
         [ResponseType(typeof(device_user))]
         [HttpGet]
         [Route("api/device_user/delete")]
@@ -148,6 +160,15 @@ namespace DeviceManagement.Controllers
 
             if (deviceCrudOperator.deleteUserFromDevice(d, u))
             {
+                
+                //  添加还历史纪录
+                history his = new history();
+
+                his.device_id = d.id;
+                his.user_id = u.id;
+                his.time = DateTime.Now.ToString();
+                his.type = 1;
+                historyCrudOperator.create(his);
                 return Ok();
             }
             else {

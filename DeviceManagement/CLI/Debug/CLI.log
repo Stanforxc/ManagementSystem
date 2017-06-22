@@ -1,0 +1,7 @@
+﻿  Stdafx.cpp
+  AssemblyInfo.cpp
+  CLI.cpp
+CLI.cpp(16): warning C4101: “e”: 未引用的局部变量
+  正在生成代码...
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
+  CLI.vcxproj -> E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Debug\CLI.dll

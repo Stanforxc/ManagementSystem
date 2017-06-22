@@ -12,7 +12,7 @@ namespace Service
     {
         private HistoryCrudOperator hisCrudOp = new HistoryCrudOperator();
 
-        public List<int> recommend(string type) {
+        public List<string> recommend(string type) {
 
             return hisCrudOp.bestOfType_1(type);
 

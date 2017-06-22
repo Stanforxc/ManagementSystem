@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using EntityModel;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using CLI;
 
 namespace Crud
 {
     public class DeviceCrubOperator
     {
         private Entities entity = new Entities();
+
+        private ExceptionLog exception = new ExceptionLog();
 
         public Boolean create(device insert_item)
         {
@@ -23,7 +26,7 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -34,7 +37,7 @@ namespace Crud
                 return (from d in entity.devices where d.type_1.CompareTo(type_1) == 0 select d).ToList();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -50,7 +53,7 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -63,7 +66,7 @@ namespace Crud
                 return devices.ToList();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
 
@@ -73,8 +76,7 @@ namespace Crud
         public device queryById(int id)
         {
             try
-            {
-                Entities entity = new Entities();
+            { 
 
                 var devices = from d in entity.devices where d.id == id select d;
 
@@ -82,7 +84,7 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
 
@@ -95,7 +97,7 @@ namespace Crud
                 return true;    
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -123,7 +125,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -134,7 +136,7 @@ namespace Crud
                 return delete(dev.id);
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -153,7 +155,7 @@ namespace Crud
                 return ret;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -172,7 +174,7 @@ namespace Crud
 
                 du_new.device_id = d.id;
                 du_new.user_id = u.id;
-               
+                d.status = 0;
 
                 entity.device_user.Add(du_new);
                 entity.SaveChanges();
@@ -180,7 +182,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -192,12 +194,14 @@ namespace Crud
 
                 entity.device_user.Remove(record);
 
+                d.status = 1;
+
                 entity.SaveChanges();
 
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -206,7 +210,7 @@ namespace Crud
             try {
                 return (from d in entity.devices where d.type_1.CompareTo(type_1) == 0 select d).Count();
             }catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return 0;
             }
         }

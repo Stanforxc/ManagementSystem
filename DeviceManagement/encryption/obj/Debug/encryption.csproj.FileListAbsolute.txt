@@ -7,6 +7,6 @@ E:\VSProject\Com\encrypt\encryption\bin\Debug\encryption.tlb
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\bin\Debug\encryption.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\bin\Debug\encryption.pdb
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\bin\Debug\encryption.tlb
-E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Debug\encryption.csprojResolveAssemblyReference.cache
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Debug\encryption.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Debug\encryption.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Debug\encryption.csprojResolveAssemblyReference.cache

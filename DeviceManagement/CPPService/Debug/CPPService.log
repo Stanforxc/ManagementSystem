@@ -1,0 +1,11 @@
+﻿  stdafx.cpp
+  UriChecker.cpp
+e:\vsproject\managementsystem\managementsystem\devicemanagement\cppservice\urichecker.cpp(7): warning C4273: “checkUri”: dll 链接不一致
+  e:\vsproject\managementsystem\managementsystem\devicemanagement\cppservice\urichecker.h(11): note: 参见“checkUri”的前一个定义
+e:\vsproject\managementsystem\managementsystem\devicemanagement\cppservice\urichecker.cpp(11): warning C4018: “<”: 有符号/无符号不匹配
+  CPPService.cpp
+  正在生成代码...
+  dllmain.cpp
+    正在创建库 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Debug\CPPService.lib 和对象 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Debug\CPPService.exp
+  CPPService.vcxproj -> E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Debug\CPPService.dll
+  CPPService.vcxproj -> E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Debug\CPPService.pdb (Partial PDB)

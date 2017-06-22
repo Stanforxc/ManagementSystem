@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EntityModel;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-
+using CLI;
 
 namespace Crud
 {
@@ -14,6 +14,10 @@ namespace Crud
     {
 
         private Entities entity = new Entities();
+
+        private DeviceCrubOperator deviceCrudOp = new DeviceCrubOperator();
+
+        private ExceptionLog exception = new ExceptionLog();
 
         public Boolean create(history insert_item) {
             try
@@ -23,7 +27,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return true;
             }
         }
@@ -34,7 +38,7 @@ namespace Crud
                 return (from h in entity.histories select h).ToList();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -45,7 +49,7 @@ namespace Crud
                 return (from h in entity.histories where h.device_id == d.id select h).ToList();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -56,7 +60,7 @@ namespace Crud
                 return (from h in entity.histories where h.user_id.CompareTo(u.id) == 0 select h).ToList();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -68,7 +72,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -88,7 +92,7 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -111,13 +115,13 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
 
 
-        public List<int> bestOfType_1(string type_1) {
+        public List<string> bestOfType_1(string type_1) {
             try
             {
                 var count_table = from h_1 in entity.histories
@@ -125,16 +129,17 @@ namespace Crud
                                   group h_1.user_id by h_1.device_id into g
                                   select new { id = g.Key, count = g.Count()};
 
-                List<int> ret_list = new List<int>();
+                List<string> ret_list = new List<string>();
 
                 foreach (var item in count_table) {
-                    ret_list.Add(item.id);
+                    device d = deviceCrudOp.queryById(item.id);
+                    ret_list.Add(d.name);
                 }
 
                 return ret_list;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }

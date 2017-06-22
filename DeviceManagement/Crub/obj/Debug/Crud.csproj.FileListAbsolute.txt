@@ -13,3 +13,5 @@ E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\C
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\Crud.pdb
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crud.dll
 E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\obj\Debug\Crud.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\CLI.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\Crub\bin\Debug\CLI.pdb

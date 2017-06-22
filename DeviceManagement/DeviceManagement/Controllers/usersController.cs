@@ -146,7 +146,7 @@ namespace DeviceManagement.Controllers
 
         [HttpGet]
         [Route("api/user/recommend")]
-        public List<int> recommend(string type) {
+        public List<string> recommend(string type) {
 
             return recom.recommend(type); 
 

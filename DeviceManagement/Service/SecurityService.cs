@@ -17,8 +17,15 @@ namespace Service
         UserCrubOperator userCrudOp = new UserCrubOperator();
 
         public Boolean authentication(string userid, string pwd) {
-            user user = userCrudOp.queryById(userid);
-            return md.match(user.password, pwd, userid);
+            try
+            {
+                user user = userCrudOp.queryById(userid);
+                return md.match(user.password, pwd, userid);
+            }
+            catch (Exception e) {
+                return false;
+            }
+            
         }
 
     }

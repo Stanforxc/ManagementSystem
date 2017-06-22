@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EntityModel;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-
+using CLI;
 namespace Crud
 {
     public class UserCrubOperator
@@ -14,13 +14,15 @@ namespace Crud
 
         private Entities entity = new Entities();
 
+        private ExceptionLog exception = new ExceptionLog();
+
         public Boolean create(user insert_item) {
             try {
                 entity.users.Add(insert_item);
                 entity.SaveChanges();
                 return true;
             }catch(Exception e){
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -31,7 +33,7 @@ namespace Crud
                 return (from u in entity.users select u).ToList(); ;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -42,7 +44,7 @@ namespace Crud
                 return (from u in entity.users where u.id.CompareTo(id) == 0 select u).First();
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -55,7 +57,7 @@ namespace Crud
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -67,7 +69,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -92,7 +94,7 @@ namespace Crud
 
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -103,7 +105,7 @@ namespace Crud
                 return delete(u.id);
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -124,7 +126,7 @@ namespace Crud
                 return ret;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return null;
             }
         }
@@ -142,7 +144,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
@@ -159,7 +161,7 @@ namespace Crud
                 return true;
             }
             catch (Exception e) {
-                Console.Write(e.Message);
+                exception.log(e.Message);
                 return false;
             }
         }
