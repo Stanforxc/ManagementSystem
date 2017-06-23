@@ -17,12 +17,15 @@ namespace Infrastructure.Data.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public genre()
         {
+            this.genreDirectors = new HashSet<genreDirector>();
             this.genreMovies = new HashSet<genreMovie>();
         }
     
         public string genreStyle { get; set; }
         public string description { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<genreDirector> genreDirectors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<genreMovie> genreMovies { get; set; }
     }

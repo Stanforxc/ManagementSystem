@@ -15,9 +15,11 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Web.Http.Cors;
 
 namespace ManagementSystem.Controllers
 {
+    [EnableCors("*","*","*")]
     [Authorize]
     [RoutePrefix("api/Director")]
     public class DirectorController : ApiController
@@ -55,7 +57,7 @@ namespace ManagementSystem.Controllers
         }
 
         [AllowAnonymous]
-        public bool Post([FromBody] DirectorEntity directorEntity)
+        public string Post([FromBody] DirectorEntity directorEntity)
         {
             return _directorServices.createDirector(directorEntity);
         }

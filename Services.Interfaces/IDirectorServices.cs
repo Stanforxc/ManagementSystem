@@ -6,7 +6,7 @@ namespace Services.Interfaces
     {
         ICollection<DirectorGenre> GetDirectorByName(string director_name);
         IEnumerable<DirectorEntity> GetAllDirectors();
-        bool createDirector(DirectorEntity directorEntity);
+        string createDirector(DirectorEntity directorEntity);
         bool UpdateDirector(string director_name, DirectorEntity directorEntity);
         bool DeleteDirector(string director_name);
     }

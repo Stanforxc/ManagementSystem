@@ -15,33 +15,23 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Web.Http.Cors;
 
 namespace ManagementSystem.Controllers
 {
+    [EnableCors("*","*","*")]
     [Authorize]
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
         private readonly IUserServices _userServices;
-        private ApplicationUserManager _userManager;
 
         public UserController(IUserServices userServices)
         {
             _userServices = userServices;
         }
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            set
-            {
-                _userManager = value;
-            }
-
-        }
+       
 
         private IAuthenticationManager Authentication
         {
@@ -67,7 +57,7 @@ namespace ManagementSystem.Controllers
             return Request.CreateErrorResponse(HttpStatusCode.NoContent, "User not found");
         }
 
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(string id)
         {
             var user = _userServices.GetUserById(id);
             if(user != null)
@@ -77,30 +67,49 @@ namespace ManagementSystem.Controllers
             return Request.CreateErrorResponse(HttpStatusCode.NoContent, "No user found for this id");
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("create")]
         public string Post([FromBody] UserEntity userEntity)
         {
             return _userServices.createUser(userEntity);
         }
 
-        public bool Put(int id,[FromBody]UserEntity userEntity)
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("login")]
+        public HttpResponseMessage login([FromBody]UserEntity userEntity)
         {
-            if(id > 0)
+            if (_userServices.GetUserById(userEntity.user_name) != null)
             {
-                return _userServices.UpdateUser(id, userEntity);
+                return Request.CreateResponse(HttpStatusCode.OK,userEntity);
             }
-            return false;
+            return Request.CreateErrorResponse(HttpStatusCode.Forbidden, "register first");
+           
         }
 
-        public bool Delete(int id)
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("change")]
+        public string changePassword([FromBody]UserEntity userEntity)
         {
-            if (id > 0)
+            if(userEntity != null)
+            {
+                return _userServices.UpdateUser(userEntity);
+            }
+            return "cannot put";
+        }
+
+        public bool Delete(string id)
+        {
+            if (id != null)
             {
                 return _userServices.DeleteUser(id);
             }
             return false;
         }
         
-
+        /*
         [HttpPost]
         [AllowAnonymous]
         [Route("Login")]
@@ -113,8 +122,8 @@ namespace ManagementSystem.Controllers
                 var requestParams = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("grant_type","password"),
-                    new KeyValuePair<string, string>("username",userEntity.name),
-                    new KeyValuePair<string, string>("password", userEntity.passwd)
+                    new KeyValuePair<string, string>("username",userEntity.user_name),
+                    new KeyValuePair<string, string>("password", userEntity.password)
                 };
                 var requestParamsFormUrlEncoded = new FormUrlEncodedContent(requestParams);
                 var tokenServiceResponse = await client.PostAsync(tokenServiceUrl, requestParamsFormUrlEncoded);
@@ -188,6 +197,6 @@ namespace ManagementSystem.Controllers
             }
 
             return null;
-        }
+        }*/
     }
 }

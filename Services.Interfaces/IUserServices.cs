@@ -5,10 +5,10 @@ namespace Services.Interfaces
 {
     public interface IUserServices
     {
-        UserEntity GetUserById(int userId);
+        UserEntity GetUserById(string userId);
         IEnumerable<UserEntity> GetAllUsers();
         string createUser(UserEntity userEntity);
-        bool UpdateUser(int userId, UserEntity userEntity);
-        bool DeleteUser(int userId);
+        string UpdateUser(UserEntity userEntity);
+        bool DeleteUser(string userId);
     }
 }

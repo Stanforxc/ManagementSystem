@@ -11,5 +11,9 @@ namespace Services.Interfaces
         string createMovie(MovieEntity movieEntity);
         bool UpdateMovie(string movie_name, MovieEntity movieEntity);
         bool DeleteMovie(string movie_name);
+        IEnumerable<MovieEntity> GetBest (int star);
+
+        void testMD5();
+        void testLOGGER();
     }
 }

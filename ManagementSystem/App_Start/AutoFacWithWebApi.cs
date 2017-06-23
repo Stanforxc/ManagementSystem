@@ -7,6 +7,8 @@ using Infrastructure.Data.UOW;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Reflection;
+using Infrastructure.Data.Data;
+using AutoMapper;
 
 namespace ManagementSystem.App_Start
 {
@@ -32,8 +34,18 @@ namespace ManagementSystem.App_Start
             builder.RegisterType<MovieServices>().As<IMovieServices>().InstancePerRequest();
             builder.RegisterType<DirectorServices>().As<IDirectorServices>().InstancePerRequest();
             builder.RegisterType<GenreServices>().As<IGenreServices>().InstancePerRequest();
+            builder.RegisterType<HistoryServices>().As<IHistoryServices>().InstancePerRequest();
             builder.RegisterType<UOW>().InstancePerRequest();
-            
+
+            //注册映射
+            //builder.RegisterType<movie>().InstancePerRequest();
+            //builder.RegisterType<movieDirector>().InstancePerRequest();
+            //builder.RegisterType<movieGenre>().InstancePerRequest();
+            //builder.RegisterType<directorMovie>().InstancePerRequest();
+
+            //builder.RegisterType<Mapper>().InstancePerRequest();
+
+
             Container = builder.Build();
 
             return Container;

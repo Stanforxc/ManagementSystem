@@ -7,6 +7,8 @@ using Domain.Entities;
 using Infrastructure.Data.UOW;
 using Services.Interfaces;
 using Infrastructure.Data.Data;
+using ComponentCLR;
+using System.Diagnostics;
 
 namespace Services
 {
@@ -25,26 +27,23 @@ namespace Services
             {
                 if(userEntity != null)
                 {
-                    var user = new user
-                    {
-                        Id = userEntity.id,
-                        UserName = userEntity.name,
-                        PasswordHash = userEntity.passwd
-                    };
+                    Mapper.Initialize(x => x.CreateMap<UserEntity, user>());
+                    var user = Mapper.Map<UserEntity, user>(userEntity);
+                   
 
                     _uow.UserRepository.Insert(user);
                     _uow.Commit();
                     scope.Complete();
-                    return user.Id;
+                    return user.user_name;
                 }
                 return "-1";
             }
         }
 
-        public bool DeleteUser(int userId)
+        public bool DeleteUser(string userId)
         {
             var success = false;
-            if(userId > 0)
+            if(userId != null)
             {
                 using(var scope = new TransactionScope())
                 {
@@ -61,6 +60,18 @@ namespace Services
             return success;
         }
 
+        public void MTCtest()
+        {
+            ResultsCLR cppClrResults;
+            Stopwatch sw = new System.Diagnostics.Stopwatch();
+            using (var testCppClr = new TorusMontecarloCLR())
+            {
+                sw.Start();
+                cppClrResults = testCppClr.Calculate(100000);
+                sw.Stop();
+            }
+        }
+
         public IEnumerable<UserEntity> GetAllUsers()
         {
             var users = _uow.UserRepository.GetAll().ToList();
@@ -73,7 +84,7 @@ namespace Services
             return null;
         }
 
-        public UserEntity GetUserById(int userId)
+        public UserEntity GetUserById(string userId)
         {
             var user = _uow.UserRepository.GetByID(userId);
             if(user != null)
@@ -85,22 +96,30 @@ namespace Services
             return null;
         }
 
-        public bool UpdateUser(int userId, UserEntity userEntity)
+        public string UpdateUser(UserEntity userEntity)
         {
             var success = false;
             using(var scope= new TransactionScope())
             {
-                var user = _uow.UserRepository.GetByID(userId);
+                var user = _uow.UserRepository.GetByID(userEntity.user_name);
                 if (user != null)
                 {
-                    user.UserName = userEntity.name;
+                    if (user!=null)
+                    {
+                        user.user_name = userEntity.user_name;
+                    }
+                    else
+                    {
+                        return "username exists";
+                    }
+                    user.password = userEntity.password;
                     _uow.UserRepository.Uppdate(user);
                     _uow.Commit();
                     scope.Complete();
                     success = true;
                 }
             }
-            return success;
+            return success.ToString();
         }
 
         

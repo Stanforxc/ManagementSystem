@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="roles" EntityType="DataModel.role" />
-    <EntitySet Name="userclaims" EntityType="DataModel.userclaim" />
-    <EntitySet Name="userlogins" EntityType="DataModel.userlogin" />
-    <EntitySet Name="userroles" EntityType="DataModel.userrole" />
-    <EntitySet Name="users" EntityType="DataModel.user" />
     <EntitySet Name="directors" EntityType="DataModel.director" />
     <EntitySet Name="directorGenres" EntityType="DataModel.directorGenre" />
     <AssociationSet Name="directorName" Association="DataModel.directorName">
@@ -29,67 +24,19 @@
       <End Role="movieGenre" EntitySet="movieGenres" />
     </AssociationSet>
     <EntitySet Name="genres" EntityType="DataModel.genre" />
+    <EntitySet Name="genreDirectors" EntityType="DataModel.genreDirector" />
     <EntitySet Name="genreMovies" EntityType="DataModel.genreMovie" />
+    <AssociationSet Name="genre_Style" Association="DataModel.genre_Style">
+      <End Role="genre" EntitySet="genres" />
+      <End Role="genreDirector" EntitySet="genreDirectors" />
+    </AssociationSet>
     <AssociationSet Name="genreStyle" Association="DataModel.genreStyle">
       <End Role="genre" EntitySet="genres" />
       <End Role="genreMovie" EntitySet="genreMovies" />
     </AssociationSet>
-    <AssociationSet Name="movie_Id" Association="DataModel.movie_Id">
-      <End Role="movie" EntitySet="movies" />
-      <End Role="genreMovie" EntitySet="genreMovies" />
-    </AssociationSet>
+    <EntitySet Name="histories" EntityType="DataModel.history" />
+    <EntitySet Name="users" EntityType="DataModel.user" />
   </EntityContainer>
-  <EntityType Name="role">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="userclaim">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="ClaimType" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="ClaimValue" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="userlogin">
-    <Key>
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="userrole">
-    <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="RoleId" />
-    </Key>
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="user">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-    <Property Name="PasswordHash" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="SecurityStamp" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="DateTime" />
-    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="director">
     <Key>
       <PropertyRef Name="director_name" />
@@ -176,7 +123,6 @@
     <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="movieDirectors" Relationship="DataModel.movieID" FromRole="movie" ToRole="movieDirector" />
     <NavigationProperty Name="movieGenres" Relationship="DataModel.movieName" FromRole="movie" ToRole="movieGenre" />
-    <NavigationProperty Name="genreMovies" Relationship="DataModel.movie_Id" FromRole="movie" ToRole="genreMovie" />
   </EntityType>
   <Association Name="movieID">
     <End Type="DataModel.movie" Role="movie" Multiplicity="1" />
@@ -208,19 +154,41 @@
     </Key>
     <Property Name="genreStyle" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="genreDirectors" Relationship="DataModel.genre_Style" FromRole="genre" ToRole="genreDirector" />
     <NavigationProperty Name="genreMovies" Relationship="DataModel.genreStyle" FromRole="genre" ToRole="genreMovie" />
+  </EntityType>
+  <EntityType Name="genreDirector">
+    <Key>
+      <PropertyRef Name="genre_id" />
+      <PropertyRef Name="director_id" />
+    </Key>
+    <Property Name="genre_id" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="director_id" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="genre" Relationship="DataModel.genre_Style" FromRole="genreDirector" ToRole="genre" />
   </EntityType>
   <EntityType Name="genreMovie">
     <Key>
-      <PropertyRef Name="genreStyle" />
-      <PropertyRef Name="movieId" />
+      <PropertyRef Name="genre_Style" />
+      <PropertyRef Name="movie_id" />
     </Key>
-    <Property Name="genreStyle" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="movieId" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="genre_Style" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="movie_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
     <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="genre" Relationship="DataModel.genreStyle" FromRole="genreMovie" ToRole="genre" />
-    <NavigationProperty Name="movie" Relationship="DataModel.movie_Id" FromRole="genreMovie" ToRole="movie" />
   </EntityType>
+  <Association Name="genre_Style">
+    <End Type="DataModel.genre" Role="genre" Multiplicity="1" />
+    <End Type="DataModel.genreDirector" Role="genreDirector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genreStyle" />
+      </Principal>
+      <Dependent Role="genreDirector">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="genreStyle">
     <End Type="DataModel.genre" Role="genre" Multiplicity="1" />
     <End Type="DataModel.genreMovie" Role="genreMovie" Multiplicity="*" />
@@ -229,20 +197,23 @@
         <PropertyRef Name="genreStyle" />
       </Principal>
       <Dependent Role="genreMovie">
-        <PropertyRef Name="genreStyle" />
+        <PropertyRef Name="genre_Style" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="movie_Id">
-    <End Type="DataModel.movie" Role="movie" Multiplicity="1" />
-    <End Type="DataModel.genreMovie" Role="genreMovie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="movie">
-        <PropertyRef Name="movie_name" />
-      </Principal>
-      <Dependent Role="genreMovie">
-        <PropertyRef Name="movieId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="time" />
+    </Key>
+    <Property Name="time" Type="DateTime" Nullable="false" />
+    <Property Name="operation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Name="user_name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

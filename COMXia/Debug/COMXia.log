@@ -1,0 +1,11 @@
+﻿  stdafx.cpp
+  Logger.cpp
+  COMXia.cpp
+  正在生成代码...
+  xdlldata.c
+  COMXia_i.c
+  正在生成代码...
+  dllmain.cpp
+    正在创建库 D:\VisualStudioProjects\ManagementSystem\Debug\COMXia.lib 和对象 D:\VisualStudioProjects\ManagementSystem\Debug\COMXia.exp
+  COMXia.vcxproj -> D:\VisualStudioProjects\ManagementSystem\Debug\COMXia.dll
+  COMXia.vcxproj -> D:\VisualStudioProjects\ManagementSystem\Debug\COMXia.pdb (Partial PDB)

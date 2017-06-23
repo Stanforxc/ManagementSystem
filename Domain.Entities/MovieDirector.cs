@@ -8,6 +8,6 @@ namespace Domain.Entities
         public string director { get; set; }
         public string description { get; set; }
 
-       // public virtual MovieEntity MovieEntity { get; set; }
+        public virtual MovieEntity MovieEntity { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Domain.Entities
         public string movie_Id { get; set; }
         public string description { get; set; }
 
-        public virtual DirectorEntity DirectorEntity { get; set; }
+        //public virtual DirectorEntity DirectorEntity { get; set; }
     }
 }

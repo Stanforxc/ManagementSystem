@@ -168,6 +168,7 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ManagementSystem.p
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Antlr3.Runtime.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.Integration.WebApi.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\AutoMapper.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Entities.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.dll
@@ -203,7 +204,9 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Purplelight.Framew
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Net.Http.Formatting.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Cors.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Helpers.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Http.Cors.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Http.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Http.Owin.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Http.WebHost.dll
@@ -214,7 +217,6 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPage
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPages.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.WebPages.Razor.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\WebGrease.dll
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\AutoMapper.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Entities.pdb
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Domain.Interfaces.pdb
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Infrastructure.Data.pdb
@@ -223,6 +225,7 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.Interface
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Services.pdb
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Autofac.Integration.WebApi.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\AutoMapper.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\EntityFramework.SqlServer.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -230,6 +233,7 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.AspNet.Ident
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MySql.Data.Entity.EF6.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\NLog.xml
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Http.Cors.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Newtonsoft.Json.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Net.Http.Formatting.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\System.Web.Helpers.xml
@@ -259,7 +263,6 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.Depen
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.WindowsServer.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\Microsoft.AI.Web.xml
-D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\AutoMapper.xml
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
@@ -285,3 +288,9 @@ D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\zh-Hans\System.Web
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.dll
 D:\VisualStudioProjects\ManagementSystem\ManagementSystem\obj\Debug\ManagementSystem.pdb
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ThreadMessaging.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ThreadMessaging.pdb
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MD5Cli.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\MD5Cli.pdb
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ComponentCLR.dll
+D:\VisualStudioProjects\ManagementSystem\ManagementSystem\bin\ComponentCLR.pdb

@@ -39,8 +39,10 @@
     <Compile Include="DirectorEntity.cs" />
     <Compile Include="DirectorGenre.cs" />
     <Compile Include="DirectorMovie.cs" />
+    <Compile Include="GenreDirector.cs" />
     <Compile Include="GenreEntity.cs" />
     <Compile Include="GenreMovie.cs" />
+    <Compile Include="HistoryEntity.cs" />
     <Compile Include="MovieDirector.cs" />
     <Compile Include="MovieEntity.cs" />
     <Compile Include="MovieGenre.cs" />

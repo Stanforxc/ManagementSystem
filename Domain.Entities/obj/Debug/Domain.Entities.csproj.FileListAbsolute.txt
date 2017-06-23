@@ -5,6 +5,5 @@ D:\FinalProject\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.pdb
 D:\FinalProject\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\Domain.Entities\bin\Debug\Domain.Entities.dll
 D:\VisualStudioProjects\ManagementSystem\Domain.Entities\bin\Debug\Domain.Entities.pdb
-D:\VisualStudioProjects\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.csprojResolveAssemblyReference.cache
 D:\VisualStudioProjects\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.dll
 D:\VisualStudioProjects\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.pdb

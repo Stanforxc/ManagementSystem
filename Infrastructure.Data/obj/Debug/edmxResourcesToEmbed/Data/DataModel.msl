@@ -1,59 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
-    <EntitySetMapping Name="roles">
-      <EntityTypeMapping TypeName="DataModel.role">
-        <MappingFragment StoreEntitySet="roles">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="userclaims">
-      <EntityTypeMapping TypeName="DataModel.userclaim">
-        <MappingFragment StoreEntitySet="userclaims">
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="userlogins">
-      <EntityTypeMapping TypeName="DataModel.userlogin">
-        <MappingFragment StoreEntitySet="userlogins">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="userroles">
-      <EntityTypeMapping TypeName="DataModel.userrole">
-        <MappingFragment StoreEntitySet="userroles">
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="DataModel.user">
-        <MappingFragment StoreEntitySet="users">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="directors">
       <EntityTypeMapping TypeName="DataModel.director">
         <MappingFragment StoreEntitySet="director">
@@ -119,12 +66,38 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="genreDirectors">
+      <EntityTypeMapping TypeName="DataModel.genreDirector">
+        <MappingFragment StoreEntitySet="genreDirector">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="director_id" ColumnName="director_id" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="genreMovies">
       <EntityTypeMapping TypeName="DataModel.genreMovie">
         <MappingFragment StoreEntitySet="genreMovie">
           <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="movieId" ColumnName="movieId" />
-          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="genre_Style" ColumnName="genre_Style" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="histories">
+      <EntityTypeMapping TypeName="DataModel.history">
+        <MappingFragment StoreEntitySet="history">
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="DataModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

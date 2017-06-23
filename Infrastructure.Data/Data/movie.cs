@@ -19,7 +19,6 @@ namespace Infrastructure.Data.Data
         {
             this.movieDirectors = new HashSet<movieDirector>();
             this.movieGenres = new HashSet<movieGenre>();
-            this.genreMovies = new HashSet<genreMovie>();
         }
     
         public string movie_name { get; set; }
@@ -34,7 +33,5 @@ namespace Infrastructure.Data.Data
         public virtual ICollection<movieDirector> movieDirectors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<movieGenre> movieGenres { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<genreMovie> genreMovies { get; set; }
     }
 }

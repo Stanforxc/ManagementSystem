@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IDirectorServices.cs" />
     <Compile Include="IGenreServices.cs" />
+    <Compile Include="IHistoryServices.cs" />
     <Compile Include="IMovieServices.cs" />
     <Compile Include="IRegisterService.cs" />
     <Compile Include="IUserServices.cs" />

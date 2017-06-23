@@ -14,11 +14,10 @@ namespace Infrastructure.Data.Data
     
     public partial class genreMovie
     {
-        public string genreStyle { get; set; }
-        public string movieId { get; set; }
+        public string genre_Style { get; set; }
+        public string movie_id { get; set; }
         public string description { get; set; }
     
         public virtual genre genre { get; set; }
-        public virtual movie movie { get; set; }
     }
 }

@@ -85,7 +85,13 @@
     <Compile Include="Data\genre.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\genreDirector.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\genreMovie.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\history.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\movie.cs">
@@ -97,19 +103,7 @@
     <Compile Include="Data\movieGenre.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\role.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\user.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\userclaim.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\userlogin.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\userrole.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GenericRepository\GenericRepository.cs" />
@@ -125,9 +119,9 @@
       <Project>{6203fe88-72b1-4a13-91d5-e3bdde2b922a}</Project>
       <Name>Domain.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj">
+    <ProjectReference Include="..\Domain.Interfaces\Domain.Threading.csproj">
       <Project>{9e4af24c-bb49-4889-8dae-c3c389ff785c}</Project>
-      <Name>Domain.Interfaces</Name>
+      <Name>Domain.Threading</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

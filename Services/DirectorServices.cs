@@ -18,39 +18,41 @@ namespace Services
         {
             _uow = uow;
         }
-        public bool createDirector(DirectorEntity directorEntity)
+        public string createDirector(DirectorEntity directorEntity)
         {
             using (var scope = new TransactionScope())
             {
                 if (directorEntity != null)
                 {
-
-                  //  Mapper.Initialize(x => x.CreateMap<GenresEntity, Genere>());
-                   // var genres = Mapper.Map<ICollection<GenresEntity>, ICollection<Genere>>(directorEntity.Genre);
-
-                    var director = new director
+                    if (!_uow.DirectoryRepository.Exists(directorEntity.director_name))
                     {
-                        director_name = directorEntity.director_name,
-                        born_date = directorEntity.born_date,
-                        //Generes = genres
-                    };
-
-                    try
-                    {
-                        //_uow.GenereRepository.ManyToManyDirectorGenre(director);
+                        director director = DirectorMapperInitializer(directorEntity);
                         _uow.DirectoryRepository.Insert(director);
-                    }
-                    catch (Exception e)
-                    {
-                        return false;
-                    }
-                    finally
-                    {
+                        if (director.directorMovies.Count() > 0)
+                        {
+                           ICollection<directorMovie> directorMovies = DirectorMovieMapperInitializer(directorEntity);
+                           _uow.DirectorMovieRepository.InsertBatch(directorMovies);
+                        }
+
+                        if (director.directorGenres.Count() > 0)
+                        {
+                            ICollection<directorGenre> directorGenres = DirectorGenreMapperIntializer(directorEntity);
+                            _uow.DirectorGenreRepository.InsertBatch(directorGenres);
+                        }
+
+
                         _uow.Commit();
                         scope.Complete();
+
+                        return director.director_name;
+                    }
+                    else
+                    {
+                        return "director exists";
                     }
                 }
-                return true;
+
+                return "-1";
             }
 
         }
@@ -80,8 +82,10 @@ namespace Services
             var directors = _uow.DirectoryRepository.GetAll().ToList();
             if (directors.Any())
             {
-                Mapper.Initialize(x => x.CreateMap<director, DirectorEntity>());
-                var directorsModel = Mapper.Map<List<director>, List<DirectorEntity>>(directors);
+                Mapper.Initialize(x => x.CreateMap<director, DirectorEntity>()
+                .ForMember(dest => dest.directorGenres, opt => opt.Ignore())
+                .ForMember(dest => dest.directorMovies, opt => opt.Ignore()));
+                var directorsModel = Mapper.Map<ICollection<director>, ICollection<DirectorEntity>>(directors);
                 return directorsModel;
             }
             return null;
@@ -132,6 +136,56 @@ public ICollection<Domain.Entities.directorGenre> GetDirectorByName(string direc
                 }
             }
             return success;
+        }
+
+        private director DirectorMapperInitializer(DirectorEntity directorEntity)
+        {
+            Mapper.Initialize(x=>x.CreateMap<DirectorEntity,director>()
+                .ForMember(dest => dest.directorMovies,opt => opt.Ignore())
+                .ForMember(dest => dest.directorGenres,opt => opt.Ignore()));
+            return Mapper.Map<DirectorEntity, director>(directorEntity);
+        }
+
+        private ICollection<directorMovie> DirectorMovieMapperInitializer(DirectorEntity directorEntity)
+        {
+            Mapper.Initialize(t =>
+            {
+                t.CreateMap<DirectorEntity, ICollection<directorMovie>>()
+                    .ConstructProjectionUsing(
+                        p => p.directorMovies.Select(
+                            dm => new directorMovie
+                            {
+                                movie_Id = dm.movie_Id,
+                                director_Id = p.director_name,
+                                description = p.directorMovies.FirstOrDefault(g => g.description == dm.description).description
+                            }
+                            ).ToList()
+                            );
+            });
+
+            return Mapper.Map<DirectorEntity, ICollection<directorMovie>>(directorEntity);
+        }
+
+        // 加入 directorGenre 表
+        private ICollection<directorGenre> DirectorGenreMapperIntializer(DirectorEntity directorEntity)
+        {
+            Mapper.Initialize(t =>
+            {
+                t.CreateMap<DirectorEntity, ICollection<directorGenre>>()
+                    .ConstructProjectionUsing(
+                        p => p.directorGenres.Select(
+                            dg => new directorGenre
+                            {
+                                genreStyle = dg.genreStyle,
+                                directorId = p.director_name,
+                                description = p.directorGenres.FirstOrDefault(g => g.description == dg.description).description
+
+                            }
+                            ).ToList()
+                            );
+            });
+
+            return Mapper.Map<DirectorEntity, ICollection<directorGenre>>(directorEntity);
         }
     }
     

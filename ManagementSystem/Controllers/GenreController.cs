@@ -15,9 +15,11 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Web.Http.Cors;
 
 namespace ManagementSystem.Controllers
 {
+    [EnableCors("*","*","*")]
     [Authorize]
     [RoutePrefix("api/Genre")]
     public class GenreController : ApiController
@@ -29,9 +31,46 @@ namespace ManagementSystem.Controllers
         }
 
         [AllowAnonymous]
+        public HttpResponseMessage Get()
+        {
+            var genres = _genreServices.GetAllGenres();
+            if (genres != null)
+            {
+                var genreEntities = genres as List<GenreEntity> ?? genres.ToList();
+                if (genreEntities.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, genreEntities);
+                }
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Movies are all not available.");
+        }
+
+        [AllowAnonymous]
+        public HttpResponseMessage Get(string genreStyle)
+        {
+            var genre = _genreServices.GetGenreByName(genreStyle);
+            if (genre != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, genre);
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.NoContent, genreStyle + " is not found");
+        }
+
+        [AllowAnonymous]
         public string Post([FromBody]GenreEntity genreEntity)
         {
             return _genreServices.createGenre(genreEntity);
         }
+
+        [AllowAnonymous]
+        public bool Delete(string genre_style)
+        {
+            if (genre_style != null)
+            {
+                return _genreServices.DeleteGenre(genre_style);
+            }
+            return false;
+        }
+
     }
 }

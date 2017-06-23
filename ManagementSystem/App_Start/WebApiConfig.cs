@@ -8,6 +8,7 @@ using Newtonsoft.Json.Serialization;
 using Autofac;
 using System.Reflection;
 using System.Net.Http.Formatting;
+using System.Web.Http.Cors;
 
 namespace ManagementSystem
 {
@@ -31,6 +32,9 @@ namespace ManagementSystem
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors();
         }
     }
 }

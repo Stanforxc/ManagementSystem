@@ -14,11 +14,13 @@ namespace Infrastructure.Data.UOW
         GenericRepository<movie> MovieRepository { get; }
         GenericRepository<director> DirectoryRepository { get; }
         GenericRepository<genre> GenreRepository { get; }
+        GenericRepository<history> HistoryRepository { get; }
         GenericRepository<directorGenre> DirectorGenreRepository { get; }
         GenericRepository<directorMovie> DirectorMovieRepository { get; }
         GenericRepository<movieDirector> MovieDirectorRepository { get; }
         GenericRepository<movieGenre> MovieGenreRepository { get; }
         GenericRepository<genreMovie> GenreMovieRepository { get; }
+        GenericRepository<genreDirector> GenreDirectorRepository { get; }
 
     }
 }

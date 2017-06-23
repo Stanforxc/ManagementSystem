@@ -15,8 +15,10 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Web.Http.Cors;
 namespace ManagementSystem.Controllers
 {
+    [EnableCors("*","*","*")]
     [Authorize]
     [RoutePrefix("api/Movie")]
     public class MovieController : ApiController
@@ -27,6 +29,16 @@ namespace ManagementSystem.Controllers
         {
             _movieServices = movieServices;
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("rank")]
+        public HttpResponseMessage GetAllStatistics(int rank)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _movieServices.GetBest(rank));
+
+        }
+
 
         [AllowAnonymous]
         public HttpResponseMessage Get()

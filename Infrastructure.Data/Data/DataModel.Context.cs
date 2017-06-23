@@ -25,11 +25,6 @@ namespace Infrastructure.Data.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<role> roles { get; set; }
-        public virtual DbSet<userclaim> userclaims { get; set; }
-        public virtual DbSet<userlogin> userlogins { get; set; }
-        public virtual DbSet<userrole> userroles { get; set; }
-        public virtual DbSet<user> users { get; set; }
         public virtual DbSet<director> directors { get; set; }
         public virtual DbSet<directorGenre> directorGenres { get; set; }
         public virtual DbSet<directorMovie> directorMovies { get; set; }
@@ -37,6 +32,9 @@ namespace Infrastructure.Data.Data
         public virtual DbSet<movieGenre> movieGenres { get; set; }
         public virtual DbSet<movie> movies { get; set; }
         public virtual DbSet<genre> genres { get; set; }
+        public virtual DbSet<genreDirector> genreDirectors { get; set; }
         public virtual DbSet<genreMovie> genreMovies { get; set; }
+        public virtual DbSet<history> histories { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }
