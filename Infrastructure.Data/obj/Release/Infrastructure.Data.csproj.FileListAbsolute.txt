@@ -1,0 +1,16 @@
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\Infrastructure.Data.dll.config
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\Infrastructure.Data.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\Infrastructure.Data.pdb
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\EntityFramework.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\MySql.Data.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\MySql.Data.Entity.EF6.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\Domain.Entities.pdb
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\EntityFramework.xml
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\obj\Release\Infrastructure.Data.csprojResolveAssemblyReference.cache
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\obj\Release\Infrastructure.Data.dll
+D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\obj\Release\Infrastructure.Data.pdb

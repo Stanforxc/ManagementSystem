@@ -33,8 +33,8 @@
     <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentCLR">
-      <HintPath>C:\Users\stanf\Downloads\Montecarlo\bin\Release\ComponentCLR.dll</HintPath>
+    <Reference Include="MD5Cli">
+      <HintPath>..\Release\MD5Cli.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -49,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectorServices.cs" />
-    <Compile Include="win32_file_iterator.cs" />
     <Compile Include="GenreServices.cs" />
     <Compile Include="MovieServices.cs" />
     <Compile Include="UserServices.cs" />
@@ -61,17 +60,9 @@
       <Project>{6203fe88-72b1-4a13-91d5-e3bdde2b922a}</Project>
       <Name>Domain.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Interfaces\Domain.Threading.csproj">
-      <Project>{9e4af24c-bb49-4889-8dae-c3c389ff785c}</Project>
-      <Name>Domain.Threading</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj">
       <Project>{a08c84e8-1a56-425e-8fc5-c368ff494487}</Project>
       <Name>Infrastructure.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MD5Cli\MD5Cli.vcxproj">
-      <Project>{71773d7b-c9df-49ef-9ee0-5b93ff6f40ff}</Project>
-      <Name>MD5Cli</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj">
       <Project>{f18a891a-47fb-46af-b882-376f7a7f6ee1}</Project>
@@ -83,6 +74,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <COMReference Include="COMXiaLib">
       <Guid>{007A9DB0-3DB8-4E7D-A250-48EFA8DA0B4B}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -92,9 +86,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

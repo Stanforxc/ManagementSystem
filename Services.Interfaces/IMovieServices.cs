@@ -15,5 +15,7 @@ namespace Services.Interfaces
 
         void testMD5();
         void testLOGGER();
+
+        void testFilter();
     }
 }

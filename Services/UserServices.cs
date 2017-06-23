@@ -7,7 +7,6 @@ using Domain.Entities;
 using Infrastructure.Data.UOW;
 using Services.Interfaces;
 using Infrastructure.Data.Data;
-using ComponentCLR;
 using System.Diagnostics;
 
 namespace Services
@@ -59,7 +58,7 @@ namespace Services
             }
             return success;
         }
-
+        /*
         public void MTCtest()
         {
             ResultsCLR cppClrResults;
@@ -70,7 +69,7 @@ namespace Services
                 cppClrResults = testCppClr.Calculate(100000);
                 sw.Stop();
             }
-        }
+        }*/
 
         public IEnumerable<UserEntity> GetAllUsers()
         {

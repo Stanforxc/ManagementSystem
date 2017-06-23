@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Domain.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Domain.Entities\bin\Release\Domain.Entities.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -113,16 +117,6 @@
     <Compile Include="UOW\IUOW.cs" />
     <Compile Include="UOW\UOW.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
-      <Project>{6203fe88-72b1-4a13-91d5-e3bdde2b922a}</Project>
-      <Name>Domain.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.Interfaces\Domain.Threading.csproj">
-      <Project>{9e4af24c-bb49-4889-8dae-c3c389ff785c}</Project>
-      <Name>Domain.Threading</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

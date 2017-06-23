@@ -30,6 +30,15 @@ namespace ManagementSystem.Controllers
             _movieServices = movieServices;
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("haha")]
+        public bool testMD5()
+        {
+            _movieServices.testMD5();
+            return true;
+        }
+
         [HttpGet]
         [AllowAnonymous]
         [Route("rank")]

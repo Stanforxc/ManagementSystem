@@ -303,6 +303,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -353,10 +354,6 @@
     <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
       <Project>{6203fe88-72b1-4a13-91d5-e3bdde2b922a}</Project>
       <Name>Domain.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.Interfaces\Domain.Threading.csproj">
-      <Project>{9e4af24c-bb49-4889-8dae-c3c389ff785c}</Project>
-      <Name>Domain.Threading</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj">
       <Project>{a08c84e8-1a56-425e-8fc5-c368ff494487}</Project>

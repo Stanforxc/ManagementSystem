@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
+    <EntitySetMapping Name="directors">
+      <EntityTypeMapping TypeName="DataModel.director">
+        <MappingFragment StoreEntitySet="director">
+          <ScalarProperty Name="born_date" ColumnName="born_date" />
+          <ScalarProperty Name="director_name" ColumnName="director_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="directorGenres">
+      <EntityTypeMapping TypeName="DataModel.directorGenre">
+        <MappingFragment StoreEntitySet="directorGenre">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+          <ScalarProperty Name="directorId" ColumnName="directorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="directorMovies">
+      <EntityTypeMapping TypeName="DataModel.directorMovie">
+        <MappingFragment StoreEntitySet="directorMovie">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="movie_Id" ColumnName="movie_Id" />
+          <ScalarProperty Name="director_Id" ColumnName="director_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movieDirectors">
+      <EntityTypeMapping TypeName="DataModel.movieDirector">
+        <MappingFragment StoreEntitySet="movieDirector">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="movie_Id" ColumnName="movie_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movieGenres">
+      <EntityTypeMapping TypeName="DataModel.movieGenre">
+        <MappingFragment StoreEntitySet="movieGenre">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+          <ScalarProperty Name="movieId" ColumnName="movieId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movies">
+      <EntityTypeMapping TypeName="DataModel.movie">
+        <MappingFragment StoreEntitySet="movie">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="runtime" ColumnName="runtime" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cast" ColumnName="cast" />
+          <ScalarProperty Name="star" ColumnName="star" />
+          <ScalarProperty Name="online_time" ColumnName="online_time" />
+          <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genres">
+      <EntityTypeMapping TypeName="DataModel.genre">
+        <MappingFragment StoreEntitySet="genre">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="genreStyle" ColumnName="genreStyle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genreDirectors">
+      <EntityTypeMapping TypeName="DataModel.genreDirector">
+        <MappingFragment StoreEntitySet="genreDirector">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="director_id" ColumnName="director_id" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genreMovies">
+      <EntityTypeMapping TypeName="DataModel.genreMovie">
+        <MappingFragment StoreEntitySet="genreMovie">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="genre_Style" ColumnName="genre_Style" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="histories">
+      <EntityTypeMapping TypeName="DataModel.history">
+        <MappingFragment StoreEntitySet="history">
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="DataModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

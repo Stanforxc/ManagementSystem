@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Domain.Entities">
+      <HintPath>..\Domain.Entities\bin\Release\Domain.Entities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,12 +50,6 @@
     <Compile Include="IRegisterService.cs" />
     <Compile Include="IUserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
-      <Project>{6203fe88-72b1-4a13-91d5-e3bdde2b922a}</Project>
-      <Name>Domain.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

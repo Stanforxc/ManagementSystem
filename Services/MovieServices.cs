@@ -7,6 +7,7 @@ using Infrastructure.Data.UOW;
 using Services.Interfaces;
 using Infrastructure.Data.Data;
 using System;
+using System.Runtime.InteropServices;
 using MD5Cli;
 using COMXiaLib;
 
@@ -30,6 +31,8 @@ namespace Services
             Logger logger = new Logger();
             logger.serialize("put","url");
         }
+
+
 
         public IEnumerable<MovieEntity> GetBest(int star)
         {
@@ -289,5 +292,14 @@ namespace Services
             });
             return Mapper.Map<MovieEntity, ICollection<movieGenre>>(movieEntity);
         }
+
+        public void testFilter()
+        {
+            checkUri("haha");
+        }
+
+
+        [DllImport("Filter.dll")]
+        extern static bool checkUri(string lpRootPathName);
     }
 }

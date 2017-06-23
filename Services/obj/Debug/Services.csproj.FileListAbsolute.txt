@@ -13,12 +13,10 @@ D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Services.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Services.pdb
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\AutoMapper.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Domain.Entities.dll
-D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Domain.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Infrastructure.Data.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Services.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\EntityFramework.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Domain.Entities.pdb
-D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Domain.Interfaces.pdb
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Infrastructure.Data.pdb
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Infrastructure.Data.dll.config
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\Services.Interfaces.pdb
@@ -34,5 +32,3 @@ D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\MD5Cli.dll
 D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\MD5Cli.pdb
 D:\VisualStudioProjects\ManagementSystem\Services\obj\Debug\Interop.COMXiaLib.dll
 D:\VisualStudioProjects\ManagementSystem\Services\obj\Debug\Services.csproj.ResolveComReference.cache
-D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\ComponentCLR.dll
-D:\VisualStudioProjects\ManagementSystem\Services\bin\Debug\ComponentCLR.pdb

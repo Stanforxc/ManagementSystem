@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="director">
+    <Key>
+      <PropertyRef Name="director_name" />
+    </Key>
+    <Property Name="director_name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="born_date" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="directorGenre">
+    <Key>
+      <PropertyRef Name="directorId" />
+      <PropertyRef Name="genreStyle" />
+    </Key>
+    <Property Name="directorId" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="directorMovie">
+    <Key>
+      <PropertyRef Name="director_Id" />
+      <PropertyRef Name="movie_Id" />
+    </Key>
+    <Property Name="director_Id" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="movie_Id" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="genre">
+    <Key>
+      <PropertyRef Name="genreStyle" />
+    </Key>
+    <Property Name="genreStyle" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="genreDirector">
+    <Key>
+      <PropertyRef Name="genre_id" />
+      <PropertyRef Name="director_id" />
+    </Key>
+    <Property Name="genre_id" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="director_id" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="genreMovie">
+    <Key>
+      <PropertyRef Name="genre_Style" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="genre_Style" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="movie_id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="time" />
+    </Key>
+    <Property Name="time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="operation" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="movie">
+    <Key>
+      <PropertyRef Name="movie_name" />
+    </Key>
+    <Property Name="movie_name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="online_time" Type="datetime" Precision="0" />
+    <Property Name="star" Type="int" />
+    <Property Name="cast" Type="varchar" MaxLength="45" />
+    <Property Name="price" Type="int" />
+    <Property Name="runtime" Type="varchar" MaxLength="45" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="movieDirector">
+    <Key>
+      <PropertyRef Name="movie_Id" />
+      <PropertyRef Name="director" />
+    </Key>
+    <Property Name="movie_Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="director" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="movieGenre">
+    <Key>
+      <PropertyRef Name="movieId" />
+      <PropertyRef Name="genreStyle" />
+    </Key>
+    <Property Name="movieId" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="genreStyle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Name="user_name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="45" />
+    <Property Name="role" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <Association Name="director_ID">
+    <End Role="director" Type="Self.director" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="directorMovie" Type="Self.directorMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="director">
+        <PropertyRef Name="director_name" />
+      </Principal>
+      <Dependent Role="directorMovie">
+        <PropertyRef Name="director_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="directorName">
+    <End Role="director" Type="Self.director" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="directorGenre" Type="Self.directorGenre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="director">
+        <PropertyRef Name="director_name" />
+      </Principal>
+      <Dependent Role="directorGenre">
+        <PropertyRef Name="directorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="genre_Style">
+    <End Role="genre" Type="Self.genre" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="genreDirector" Type="Self.genreDirector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genreStyle" />
+      </Principal>
+      <Dependent Role="genreDirector">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="genreStyle">
+    <End Role="genre" Type="Self.genre" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="genreMovie" Type="Self.genreMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genreStyle" />
+      </Principal>
+      <Dependent Role="genreMovie">
+        <PropertyRef Name="genre_Style" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="movieID">
+    <End Role="movie" Type="Self.movie" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="movieDirector" Type="Self.movieDirector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_name" />
+      </Principal>
+      <Dependent Role="movieDirector">
+        <PropertyRef Name="movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="movieName">
+    <End Role="movie" Type="Self.movie" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="movieGenre" Type="Self.movieGenre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_name" />
+      </Principal>
+      <Dependent Role="movieGenre">
+        <PropertyRef Name="movieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="director" EntityType="Self.director" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="directorGenre" EntityType="Self.directorGenre" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="directorMovie" EntityType="Self.directorMovie" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="genre" EntityType="Self.genre" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="genreDirector" EntityType="Self.genreDirector" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="genreMovie" EntityType="Self.genreMovie" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="history" EntityType="Self.history" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="movie" EntityType="Self.movie" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="movieDirector" EntityType="Self.movieDirector" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="movieGenre" EntityType="Self.movieGenre" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="Base" store:Type="Tables" />
+    <AssociationSet Name="director_ID" Association="Self.director_ID">
+      <End Role="director" EntitySet="director" />
+      <End Role="directorMovie" EntitySet="directorMovie" />
+    </AssociationSet>
+    <AssociationSet Name="directorName" Association="Self.directorName">
+      <End Role="director" EntitySet="director" />
+      <End Role="directorGenre" EntitySet="directorGenre" />
+    </AssociationSet>
+    <AssociationSet Name="genre_Style" Association="Self.genre_Style">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="genreDirector" EntitySet="genreDirector" />
+    </AssociationSet>
+    <AssociationSet Name="genreStyle" Association="Self.genreStyle">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="genreMovie" EntitySet="genreMovie" />
+    </AssociationSet>
+    <AssociationSet Name="movieID" Association="Self.movieID">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movieDirector" EntitySet="movieDirector" />
+    </AssociationSet>
+    <AssociationSet Name="movieName" Association="Self.movieName">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movieGenre" EntitySet="movieGenre" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

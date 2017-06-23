@@ -20,13 +20,11 @@ D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Infrastru
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Infrastructure.Data.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Infrastructure.Data.pdb
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Domain.Entities.dll
-D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Domain.Interfaces.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\EntityFramework.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\EntityFramework.SqlServer.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\MySql.Data.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Domain.Entities.pdb
-D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\Domain.Interfaces.pdb
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\EntityFramework.xml
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\VisualStudioProjects\ManagementSystem\Infrastructure.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll

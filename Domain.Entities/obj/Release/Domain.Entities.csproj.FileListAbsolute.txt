@@ -1,0 +1,6 @@
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\$(SolutionDir)final\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\$(SolutionDir)final\Domain.Entities.pdb
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\bin\Release\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\bin\Release\Domain.Entities.pdb
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\obj\Release\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Entities\obj\Release\Domain.Entities.pdb
