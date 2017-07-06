@@ -1,0 +1,74 @@
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.background {
+  background-color: #F5F7F9;
+  width: 100%;
+  height: 100%;
+}
+
+.loading {
+  width: 80%;
+  height: calc(80% - 50px);
+  position: absolute;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.9;
+  z-index: 10000;
+}
+
+.loading > div {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.breadcrumb {
+  padding: 10px 15px 0;
+  padding-right: 88px;
+  position: relative;
+  float: left;
+  margin-left: 30px;
+}
+
+.main-container {
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  margin: 50px auto;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete {
+  margin:20px;
+  align-self: flex-start;
+  margin-left: 150px;
+}
+
+.pages {
+  margin-top: 20px;
+}
+
+.search {
+  margin: 20px;
+  width: 40%;
+}
+
+.table {
+
+}
+

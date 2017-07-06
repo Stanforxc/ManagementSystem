@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  COMXia.cpp
+  Logger.cpp
+  正在生成代码...
+  COMXia_i.c
+  xdlldata.c
+  正在生成代码...
+  dllmain.cpp
+    正在创建库 D:\VisualStudioProjects\ManagementSystem\Release\COMXia.lib 和对象 D:\VisualStudioProjects\ManagementSystem\Release\COMXia.exp
+  COMXia.vcxproj -> D:\VisualStudioProjects\ManagementSystem\Release\COMXia.dll

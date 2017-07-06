@@ -1,0 +1,35 @@
+// COMXia.idl : COMXia的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(COMXia.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(C0533B4C-6C5C-482F-B2CE-82E5C9505167),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ILogger : IDispatch{
+	[id(1)] HRESULT serialize(BSTR method, BSTR uri);
+};
+[
+	uuid(007A9DB0-3DB8-4E7D-A250-48EFA8DA0B4B),
+	version(1.0),
+]
+library COMXiaLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(F8B38B80-280F-4631-821D-74AC2B86374C)		
+	]
+	coclass Logger
+	{
+		[default] interface ILogger;
+	};
+};
+

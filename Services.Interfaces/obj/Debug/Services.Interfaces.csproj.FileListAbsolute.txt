@@ -1,6 +1,0 @@
-D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Services.Interfaces.dll
-D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Services.Interfaces.pdb
-D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.dll
-D:\FinalProject\ManagementSystem\Services.Interfaces\bin\Debug\Domain.Entities.pdb
-D:\FinalProject\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.dll
-D:\FinalProject\ManagementSystem\Services.Interfaces\obj\Debug\Services.Interfaces.pdb

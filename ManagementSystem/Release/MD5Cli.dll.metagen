@@ -1,0 +1,36 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly MD5Cli, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class MD5Cli.MD5: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(MD5Cli.MD5state*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Security.Cryptography.ICryptoTransform
+    System.IDisposable
+  Properties:
+    Int32 OutputBlockSize 'get ' : 
+    Int32 InputBlockSize 'get ' : 
+    Boolean CanTransformMultipleBlocks 'get ' : 
+    Boolean CanReuseTransform 'get ' : 
+  Methods:
+    FullCopy(): PrivateScope, Public, HideBySig
+    Init(): PrivateScope, Public, HideBySig
+    Update(Byte[], Int32, Int32): PrivateScope, Public, HideBySig
+    Update(Byte[]): PrivateScope, Public, HideBySig
+    FinalizeHash(): PrivateScope, Public, HideBySig
+    GetDigest(): PrivateScope, Public, HideBySig
+    get_CanReuseTransform(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_CanTransformMultipleBlocks(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_InputBlockSize(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_OutputBlockSize(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    TransformBlock(Byte[], Int32, Int32, Byte[], Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    TransformFinalBlock(Byte[], Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

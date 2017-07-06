@@ -1,0 +1,24 @@
+﻿  Stdafx.cpp
+  AssemblyInfo.cpp
+  MD5Cli.cpp
+  md5cpp.cpp
+md5cpp.cpp(17): warning C4273: “md5cpp::md5::md5”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(27): note: 参见“{ctor}”的前一个定义
+md5cpp.cpp(21): warning C4273: “md5cpp::md5::initialize”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(45): note: 参见“initialize”的前一个定义
+md5cpp.cpp(35): warning C4273: “md5cpp::md5::check_finalized”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(70): note: 参见“check_finalized”的前一个定义
+md5cpp.cpp(48): warning C4273: “md5cpp::md5::update”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(49): note: 参见“update”的前一个定义
+md5cpp.cpp(91): warning C4273: “md5cpp::md5::update”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(50): note: 参见“update”的前一个定义
+md5cpp.cpp(95): warning C4273: “md5cpp::md5::finalize”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(63): note: 参见“finalize”的前一个定义
+md5cpp.cpp(141): warning C4273: “md5cpp::md5::get_hash”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(66): note: 参见“get_hash”的前一个定义
+md5cpp.cpp(159): warning C4273: “md5cpp::md5::transform”: dll 链接不一致
+  d:\visualstudioprojects\managementsystem\md5cli\md5cpp.h(69): note: 参见“transform”的前一个定义
+  正在生成代码...
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
+    正在创建库 D:\VisualStudioProjects\ManagementSystem\Debug\MD5Cli.lib 和对象 D:\VisualStudioProjects\ManagementSystem\Debug\MD5Cli.exp
+  MD5Cli.vcxproj -> D:\VisualStudioProjects\ManagementSystem\Debug\MD5Cli.dll

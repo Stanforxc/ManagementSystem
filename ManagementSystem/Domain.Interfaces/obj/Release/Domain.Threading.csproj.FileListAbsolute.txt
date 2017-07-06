@@ -1,0 +1,7 @@
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\bin\Release\Domain.Interfaces.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\bin\Release\Domain.Interfaces.pdb
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\bin\Release\Domain.Entities.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\bin\Release\Domain.Entities.pdb
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\obj\Release\Domain.Threading.csprojResolveAssemblyReference.cache
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\obj\Release\Domain.Interfaces.dll
+D:\VisualStudioProjects\ManagementSystem\Domain.Interfaces\obj\Release\Domain.Interfaces.pdb

@@ -1,0 +1,42 @@
+
+Dump of file D:\VisualStudioProjects\ManagementSystem\Debug\Win32Project.dll
+
+File Type: DLL
+
+  Section contains the following exports for Win32Project.dll
+
+    00000000 characteristics
+    594BC9EB time date stamp Thu Jun 22 21:45:15 2017
+        0.00 version
+           1 ordinal base
+          15 number of functions
+          15 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000114C9 ??0win32_file_iterator@@QAE@AAV0@@Z = @ILT+1220(??0win32_file_iterator@@QAE@AAV0@@Z)
+          2    1 000113E3 ??0win32_file_iterator@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_NH@Z = @ILT+990(??0win32_file_iterator@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_NH@Z)
+          3    2 00011429 ??0win32_file_iterator@@QAE@XZ = @ILT+1060(??0win32_file_iterator@@QAE@XZ)
+          4    3 00011014 ??1win32_file_iterator@@QAE@XZ = @ILT+15(??1win32_file_iterator@@QAE@XZ)
+          5    4 000113D4 ??4?$iterator@Uinput_iterator_tag@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@HPAV32@AAV32@@std@@QAEAAU01@$$QAU01@@Z = @ILT+975(??4?$iterator@Uinput_iterator_tag@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@HPAV32@AAV32@@std@@QAEAAU01@$$QAU01@@Z)
+          6    5 000116A4 ??4?$iterator@Uinput_iterator_tag@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@HPAV32@AAV32@@std@@QAEAAU01@ABU01@@Z = @ILT+1695(??4?$iterator@Uinput_iterator_tag@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@HPAV32@AAV32@@std@@QAEAAU01@ABU01@@Z)
+          7    6 000114B5 ??4win32_file_iterator@@QAEAAV0@ABV0@@Z = @ILT+1200(??4win32_file_iterator@@QAEAAV0@ABV0@@Z)
+          8    7 0001148D ??8win32_file_iterator@@QBE_NABV0@@Z = @ILT+1160(??8win32_file_iterator@@QBE_NABV0@@Z)
+          9    8 00011613 ??9win32_file_iterator@@QBE_NABV0@@Z = @ILT+1550(??9win32_file_iterator@@QBE_NABV0@@Z)
+         10    9 00011307 ??Dwin32_file_iterator@@QAEAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ = @ILT+770(??Dwin32_file_iterator@@QAEAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)
+         11    A 00011299 ??Ewin32_file_iterator@@QAEAAV0@H@Z = @ILT+660(??Ewin32_file_iterator@@QAEAAV0@H@Z)
+         12    B 00011118 ??Ewin32_file_iterator@@QAEAAV0@XZ = @ILT+275(??Ewin32_file_iterator@@QAEAAV0@XZ)
+         13    C 000116C7 ?_chkvalid@win32_file_iterator@@AAEXAAU_WIN32_FIND_DATAA@@@Z = @ILT+1730(?_chkvalid@win32_file_iterator@@AAEXAAU_WIN32_FIND_DATAA@@@Z)
+         14    D 00011546 ?_findnext@win32_file_iterator@@AAEXXZ = @ILT+1345(?_findnext@win32_file_iterator@@AAEXXZ)
+         15    E 000110B9 ?_getval@win32_file_iterator@@AAEXAAU_WIN32_FIND_DATAA@@@Z = @ILT+180(?_getval@win32_file_iterator@@AAEXAAU_WIN32_FIND_DATAA@@@Z)
+
+  Summary
+
+        1000 .00cfg
+        1000 .data
+        1000 .idata
+        4000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        D000 .text
+       10000 .textbss

@@ -1,5 +1,0 @@
-D:\FinalProject\ManagementSystem\Domain.Entities\bin\Debug\Domain.Entities.dll
-D:\FinalProject\ManagementSystem\Domain.Entities\bin\Debug\Domain.Entities.pdb
-D:\FinalProject\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.dll
-D:\FinalProject\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.pdb
-D:\FinalProject\ManagementSystem\Domain.Entities\obj\Debug\Domain.Entities.csprojResolveAssemblyReference.cache

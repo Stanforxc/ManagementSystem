@@ -1,7 +1,0 @@
-D:\FinalProject\ManagementSystem\Domain.Interfaces\bin\Debug\Domain.Interfaces.dll
-D:\FinalProject\ManagementSystem\Domain.Interfaces\bin\Debug\Domain.Interfaces.pdb
-D:\FinalProject\ManagementSystem\Domain.Interfaces\obj\Debug\Domain.Interfaces.dll
-D:\FinalProject\ManagementSystem\Domain.Interfaces\obj\Debug\Domain.Interfaces.pdb
-D:\FinalProject\ManagementSystem\Domain.Interfaces\bin\Debug\Domain.Entities.dll
-D:\FinalProject\ManagementSystem\Domain.Interfaces\bin\Debug\Domain.Entities.pdb
-D:\FinalProject\ManagementSystem\Domain.Interfaces\obj\Debug\Domain.Interfaces.csprojResolveAssemblyReference.cache
